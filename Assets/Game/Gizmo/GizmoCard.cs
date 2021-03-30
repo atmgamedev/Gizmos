@@ -4,6 +4,9 @@ using TMPro;
 
 namespace Gizmos
 {
+    /// <summary>
+    /// 卡，每张卡都一个发明
+    /// </summary>
     public class GizmoCard : MonoBehaviour
     {
         [SerializeField] Image background;

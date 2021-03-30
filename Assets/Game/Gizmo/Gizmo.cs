@@ -4,6 +4,9 @@ using UnityEngine.Assertions;
 
 namespace Gizmos
 {
+    /// <summary>
+    /// ·¢Ã÷
+    /// </summary>
     public abstract class Gizmo
     {
         public Energy costEnergy;

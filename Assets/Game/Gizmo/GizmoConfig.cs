@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Gizmos
 {
+    /// <summary>
+    /// ∑¢√˜≈‰÷√
+    /// </summary>
     [CreateAssetMenu(fileName = "GizmoConfig", menuName = "Game/GizmoConfig")]
     public class GizmoConfig : ScriptableObject
     {

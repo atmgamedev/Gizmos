@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Gizmos
 {
+    /// <summary>
+    /// ฑฌึ้
+    /// </summary>
     public enum Energy
     {
         Green,
