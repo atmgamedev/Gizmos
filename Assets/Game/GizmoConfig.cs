@@ -1,93 +1,69 @@
+using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
 
 namespace Gizmos
 {
     [CreateAssetMenu(fileName = "GizmoConfig", menuName = "Game/GizmoConfig")]
     public class GizmoConfig : ScriptableObject
     {
-        [SerializeField, TableList] FileRandomGizmo[] level1FileRandomGizmos;
+        [SerializeField] Level1GizmoConfig level1GizmoConfig;
 
-        [Button] void GenerateLevel1Gizmos()
+        public List<Gizmo> GetLevelGizmoList()
         {
-            List<Gizmo> gizmos = new List<Gizmo>();
+            return level1GizmoConfig.GetGizmoList();
+        }
 
-            for (int i = 0; i < 4; i++)
+        [Serializable]
+        public class Level1GizmoConfig
+        {
+            [SerializeField, TableList] FileRandomGizmo[] fileRandomGizmos;
+            [SerializeField, TableList] PickRandomGizmo[] pickRandomGizmos;
+            [SerializeField, TableList] BuildPickGizmo[] buildPickGizmos;
+            [SerializeField, TableList] BuildStarGizmo[] buildStarGizmos;
+            [SerializeField, TableList] ConverterGizmo[] converterGizmos;
+            [SerializeField, TableList] UpgradeGizmo[] upgradeGizmos;
+
+            [Button]
+            void InitializeGizmos()
             {
-                var gizmo = new FileRandomGizmo
-                {
-                    costEnergy = (Energy)i,
-                    costAmount = 1,
-                    effect = new FileRandomEffect()
-                };
-                gizmos.Add(gizmo);
+                fileRandomGizmos = new FileRandomGizmo[4];
+                pickRandomGizmos = new PickRandomGizmo[8];
+                buildPickGizmos = new BuildPickGizmo[4];
+                buildStarGizmos = new BuildStarGizmo[4];
+                converterGizmos = new ConverterGizmo[8];
+                upgradeGizmos = new UpgradeGizmo[8];
             }
-            for (int i = 0; i < 8; i++)
+
+            public List<Gizmo> GetGizmoList()
             {
-                var gizmo = new PickRandomGizmo
+                var gizmos = new List<Gizmo>();
+                for (int i = 0, length = fileRandomGizmos.Length; i < length; i++)
                 {
-                    costEnergy = (Energy)(i / 2),
-                    costAmount = 1,
-                    effect = new PickRandomEffect()
-                };
-                gizmos.Add(gizmo);
-            }
-            for (int i = 0; i < 4; i++)
-            {
-                var gizmo = new BuildPickGizmo
+                    gizmos.Add(fileRandomGizmos[i]);
+                }
+                for (int i = 0, length = pickRandomGizmos.Length; i < length; i++)
                 {
-                    costEnergy = (Energy)i,
-                    costAmount = 1,
-                    effect = new BuildPickEffect()
-                };
-                gizmos.Add(gizmo);
-            }
-            for (int i = 0; i < 4; i++)
-            {
-                var gizmo = new BuildStarGizmo
+                    gizmos.Add(pickRandomGizmos[i]);
+                }
+                for (int i = 0, length = buildPickGizmos.Length; i < length; i++)
                 {
-                    costEnergy = (Energy)i,
-                    costAmount = 1,
-                    effect = new BuildStarEffect()
-                };
-                gizmos.Add(gizmo);
-            }
-            for (int i = 0; i < 8; i++)
-            {
-                var gizmo = new ConverterGizmo
+                    gizmos.Add(buildPickGizmos[i]);
+                }
+                for (int i = 0, length = buildStarGizmos.Length; i < length; i++)
                 {
-                    costEnergy = (Energy)(i / 2),
-                    costAmount = 1,
-                    effect = new ConverterEffect()
-                };
-                gizmos.Add(gizmo);
-            }
-            for (int i = 0; i < 4; i++)
-            {
-                var gizmo = new UpgradeGizmo
+                    gizmos.Add(buildStarGizmos[i]);
+                }
+                for (int i = 0, length = converterGizmos.Length; i < length; i++)
                 {
-                    costEnergy = (Energy)i,
-                    costAmount = 1,
-                    effect = new UpgradeEffect
-                    {
-                        type = UpgradeEffect.Type.StorageAdd1FileAdd1
-                    }
-                };
-                gizmos.Add(gizmo);
-            }
-            for (int i = 0; i < 4; i++)
-            {
-                var gizmo = new UpgradeGizmo
+                    gizmos.Add(converterGizmos[i]);
+                }
+                for (int i = 0, length = upgradeGizmos.Length; i < length; i++)
                 {
-                    costEnergy = (Energy)i,
-                    costAmount = 1,
-                    effect = new UpgradeEffect
-                    {
-                        type = UpgradeEffect.Type.StorageAdd1FileAdd1
-                    }
-                };
-                gizmos.Add(gizmo);
+                    gizmos.Add(upgradeGizmos[i]);
+                }
+                return gizmos;
             }
         }
     }

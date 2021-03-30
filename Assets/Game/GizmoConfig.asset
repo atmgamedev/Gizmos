@@ -12,4 +12,146 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce205f756ffd42641bf3bb60d1855e4f, type: 3}
   m_Name: GizmoConfig
   m_EditorClassIdentifier: 
-  level1FileRandomGizmos: []
+  level1GizmoConfig:
+    fileRandomGizmos:
+    - costEnergy: 0
+      costAmount: 1
+    - costEnergy: 1
+      costAmount: 1
+    - costEnergy: 2
+      costAmount: 1
+    - costEnergy: 3
+      costAmount: 1
+    pickRandomGizmos:
+    - costEnergy: 0
+      costAmount: 1
+      effect:
+        energies: 01000000
+    - costEnergy: 0
+      costAmount: 1
+      effect:
+        energies: 02000000
+    - costEnergy: 1
+      costAmount: 1
+      effect:
+        energies: 00000000
+    - costEnergy: 1
+      costAmount: 1
+      effect:
+        energies: 03000000
+    - costEnergy: 2
+      costAmount: 1
+      effect:
+        energies: 03000000
+    - costEnergy: 2
+      costAmount: 1
+      effect:
+        energies: 00000000
+    - costEnergy: 3
+      costAmount: 1
+      effect:
+        energies: 01000000
+    - costEnergy: 3
+      costAmount: 1
+      effect:
+        energies: 02000000
+    buildPickGizmos:
+    - costEnergy: 0
+      costAmount: 1
+      effect:
+        energies: 01000000
+    - costEnergy: 1
+      costAmount: 1
+      effect:
+        energies: 02000000
+    - costEnergy: 2
+      costAmount: 1
+      effect:
+        energies: 03000000
+    - costEnergy: 3
+      costAmount: 1
+      effect:
+        energies: 00000000
+    buildStarGizmos:
+    - costEnergy: 0
+      costAmount: 1
+      effect:
+        energies: 03000000
+    - costEnergy: 1
+      costAmount: 1
+      effect:
+        energies: 00000000
+    - costEnergy: 2
+      costAmount: 1
+      effect:
+        energies: 01000000
+    - costEnergy: 3
+      costAmount: 1
+      effect:
+        energies: 02000000
+    converterGizmos:
+    - costEnergy: 0
+      costAmount: 1
+      effect:
+        energies: 02000000
+    - costEnergy: 0
+      costAmount: 1
+      effect:
+        energies: 03000000
+    - costEnergy: 1
+      costAmount: 1
+      effect:
+        energies: 02000000
+    - costEnergy: 1
+      costAmount: 1
+      effect:
+        energies: 03000000
+    - costEnergy: 2
+      costAmount: 1
+      effect:
+        energies: 00000000
+    - costEnergy: 2
+      costAmount: 1
+      effect:
+        energies: 01000000
+    - costEnergy: 3
+      costAmount: 1
+      effect:
+        energies: 00000000
+    - costEnergy: 3
+      costAmount: 1
+      effect:
+        energies: 01000000
+    upgradeGizmos:
+    - costEnergy: 0
+      costAmount: 1
+      effect:
+        type: 0
+    - costEnergy: 1
+      costAmount: 1
+      effect:
+        type: 0
+    - costEnergy: 2
+      costAmount: 1
+      effect:
+        type: 0
+    - costEnergy: 3
+      costAmount: 1
+      effect:
+        type: 0
+    - costEnergy: 0
+      costAmount: 1
+      effect:
+        type: 1
+    - costEnergy: 1
+      costAmount: 1
+      effect:
+        type: 1
+    - costEnergy: 2
+      costAmount: 1
+      effect:
+        type: 1
+    - costEnergy: 3
+      costAmount: 1
+      effect:
+        type: 1
