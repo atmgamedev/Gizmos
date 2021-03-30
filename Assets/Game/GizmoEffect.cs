@@ -1,49 +1,44 @@
 using System;
-using Sirenix.OdinInspector;
 
 namespace Gizmos
 {
-    [Serializable]
-    public class GizmoEffect
-    {
-
-    };
+    public abstract class GizmoEffect { };
 
     [Serializable]
-    public class FileRandom : GizmoEffect { }
+    public class FileRandomEffect : GizmoEffect { }
 
     [Serializable]
-    public class PickRandom : GizmoEffect
+    public class PickRandomEffect : GizmoEffect
     {
         public Energy[] energies;
     };
 
     [Serializable]
-    public class BuildPick : GizmoEffect
+    public class BuildPickEffect : GizmoEffect
     {
         public Energy[] energies;
     }
 
     [Serializable]
-    public class BuildStar : GizmoEffect
+    public class BuildStarEffect : GizmoEffect
     {
         public Energy[] energies;
     }
 
     [Serializable]
-    public class Converter : GizmoEffect
+    public class ConverterEffect : GizmoEffect
     {
         public Energy[] energies;
     }
 
     [Serializable]
-    public class Duplicator : GizmoEffect
+    public class DuplicatorEffect : GizmoEffect
     {
         public Energy[] energies;
     }
 
     [Serializable]
-    public class Upgrade : GizmoEffect
+    public class UpgradeEffect : GizmoEffect
     {
         public enum Type
         {

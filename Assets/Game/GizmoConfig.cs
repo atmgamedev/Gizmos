@@ -7,7 +7,7 @@ namespace Gizmos
     [CreateAssetMenu(fileName = "GizmoConfig", menuName = "Game/GizmoConfig")]
     public class GizmoConfig : ScriptableObject
     {
-        [SerializeField, TableList] Gizmo[] level1Gizmos;
+        [SerializeField, TableList] FileRandomGizmo[] level1FileRandomGizmos;
 
         [Button] void GenerateLevel1Gizmos()
         {
@@ -15,81 +15,80 @@ namespace Gizmos
 
             for (int i = 0; i < 4; i++)
             {
-                var gizmo = new Gizmo
+                var gizmo = new FileRandomGizmo
                 {
                     costEnergy = (Energy)i,
                     costAmount = 1,
-                    effect = new FileRandom()
+                    effect = new FileRandomEffect()
                 };
                 gizmos.Add(gizmo);
             }
             for (int i = 0; i < 8; i++)
             {
-                var gizmo = new Gizmo
+                var gizmo = new PickRandomGizmo
                 {
                     costEnergy = (Energy)(i / 2),
                     costAmount = 1,
-                    effect = new PickRandom()
+                    effect = new PickRandomEffect()
                 };
                 gizmos.Add(gizmo);
             }
             for (int i = 0; i < 4; i++)
             {
-                var gizmo = new Gizmo
+                var gizmo = new BuildPickGizmo
                 {
                     costEnergy = (Energy)i,
                     costAmount = 1,
-                    effect = new BuildPick()
+                    effect = new BuildPickEffect()
                 };
                 gizmos.Add(gizmo);
             }
             for (int i = 0; i < 4; i++)
             {
-                var gizmo = new Gizmo
+                var gizmo = new BuildStarGizmo
                 {
                     costEnergy = (Energy)i,
                     costAmount = 1,
-                    effect = new BuildStar()
+                    effect = new BuildStarEffect()
                 };
                 gizmos.Add(gizmo);
             }
             for (int i = 0; i < 8; i++)
             {
-                var gizmo = new Gizmo
+                var gizmo = new ConverterGizmo
                 {
                     costEnergy = (Energy)(i / 2),
                     costAmount = 1,
-                    effect = new Converter()
+                    effect = new ConverterEffect()
                 };
                 gizmos.Add(gizmo);
             }
             for (int i = 0; i < 4; i++)
             {
-                var gizmo = new Gizmo
+                var gizmo = new UpgradeGizmo
                 {
                     costEnergy = (Energy)i,
                     costAmount = 1,
-                    effect = new Upgrade
+                    effect = new UpgradeEffect
                     {
-                        type = Upgrade.Type.StorageAdd1FileAdd1
+                        type = UpgradeEffect.Type.StorageAdd1FileAdd1
                     }
                 };
                 gizmos.Add(gizmo);
             }
             for (int i = 0; i < 4; i++)
             {
-                var gizmo = new Gizmo
+                var gizmo = new UpgradeGizmo
                 {
                     costEnergy = (Energy)i,
                     costAmount = 1,
-                    effect = new Upgrade
+                    effect = new UpgradeEffect
                     {
-                        type = Upgrade.Type.StorageAdd1FileAdd1
+                        type = UpgradeEffect.Type.StorageAdd1FileAdd1
                     }
                 };
                 gizmos.Add(gizmo);
             }
-            level1Gizmos = gizmos.ToArray();
         }
     }
 }
