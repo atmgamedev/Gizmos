@@ -63,7 +63,7 @@ namespace Gizmos
         void SetFileLimit(int number)
         {
             fileLimit = number;
-            fileText.text = string.Format("{0}/{1}", fileLimit, fileLimit);
+            fileText.text = string.Format("{0}/{1}", fileAmount, fileLimit);
         }
         void SetResearchAmount(int number)
         {
@@ -73,7 +73,7 @@ namespace Gizmos
         void SetGizmoAmount(int number)
         {
             gizmoAmount = number;
-            gizmoText.text = gizmoAmount.ToString();
+            gizmoText.text = string.Format("{0}/16", gizmoAmount, fileLimit);
         }
     }
 }
