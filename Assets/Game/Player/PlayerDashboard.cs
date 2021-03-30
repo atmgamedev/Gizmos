@@ -40,12 +40,12 @@ namespace Gizmos
         public int score;
         public int star;
 
-        public EnergyInfo energyInfo;
-        public FileInfo fileInfo;
+        public EnergyInfo energyInfo = new EnergyInfo();
+        public FileInfo fileInfo = new FileInfo();
 
         public int researchAmount;
 
-        [SerializeField] GameObject activeFrame;
+        public GameObject activeFrame;
         [SerializeField] TextMeshProUGUI nameText;
         [SerializeField] TextMeshProUGUI scoreText;
         [SerializeField] TextMeshProUGUI starText;
