@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Gizmos
 {
     public class EnergySphereManager : MonoBehaviour
     {
-        [SerializeField] Image[] sphereImages;
+        [SerializeField] EnergySphere[] spheres;
 
         const int eachTypeSphereCount = 13;
         const int displaySphereCount = 6;
@@ -18,11 +17,18 @@ namespace Gizmos
         {
             InitHiddenSpheres();
             InitDisplaySpheres();
+
+            EnergySphere.OnEnergySphereClick += CurrentPlayerPick;
         }
 
         void Start()
         {
-            UpdateUI();
+            UpdateDisplaySpheresUI();
+        }
+
+        void OnDestroy()
+        {
+            EnergySphere.OnEnergySphereClick -= CurrentPlayerPick;
         }
 
         void InitHiddenSpheres()
@@ -56,18 +62,36 @@ namespace Gizmos
 
         void SlideOutOne()
         {
-            int i = Random.Range(0, hiddenSpheres.Count);
-            Energy energy = hiddenSpheres[i];
+            if (hiddenSpheres.Count <= 0)
+            {
+                return;
+            }
+            Energy energy = hiddenSpheres[0];
             DisplaySpheres.Add(energy);
-            hiddenSpheres.RemoveAt(i);
+            hiddenSpheres.RemoveAt(0);
         }
 
-        void UpdateUI()
+        void CurrentPlayerPick(int index)
+        {
+            Energy e = DisplaySpheres[index];
+            Player.CurrentPlayer.Dashboard.AddEnergy(e);
+            DisplaySpheres.RemoveAt(index);
+            SlideOutOne();
+            UpdateDisplaySpheresUI();
+            DisableInteraction();
+        }
+
+        void UpdateDisplaySpheresUI()
         {
             for (int i = 0, length = DisplaySpheres.Count; i < length; i++)
             {
-                sphereImages[i].color = EnergyUtility.GetEnergyColor(DisplaySpheres[i]);
+                spheres[i].SetEnergy(DisplaySpheres[i]);
             }
+        }
+
+        void DisableInteraction()
+        {
+            // TODO
         }
     }
 }

@@ -1,50 +1,49 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
-using Sirenix.OdinInspector;
 
 namespace Gizmos
 {
     public class TurnManager : MonoBehaviour
     {
-        public int turn;
         [SerializeField] TextMeshProUGUI turnText;
-        public int currentPlayerIndex;
+        int turn;
 
+        static TurnManager instance;
+
+        void Awake()
+        {
+            instance = this;
+        }
         void Start()
         {
             SetTurn(0);
-            ActivePlayer(currentPlayerIndex);
+            PlayerStartTurn(Player.CurrentPlayerIndex);
         }
 
-        public void PlayerFinishTurn()
+        public static void NextPlayerStartTurn()
         {
-            NextPlayer();
-        }
-
-        void NextPlayer()
-        {
-            currentPlayerIndex = (currentPlayerIndex + 1) % PlayerDashboard.list.Count;
-            if (currentPlayerIndex == 0)
+            int nextPlayerIndex = Player.NextPlayerIndex;
+            if (nextPlayerIndex == 0)
             {
-                SetTurn(turn + 1);
+                instance.IncreaseTurn();
             }
-            ActivePlayer(currentPlayerIndex);
+            PlayerStartTurn(nextPlayerIndex);
         }
 
-        void ActivePlayer(int playerIndex)
+        static void PlayerStartTurn(int playerIndex)
         {
-
-            for (int i = 0, length = PlayerDashboard.list.Count; i < length; i++)
-            {
-                var player = PlayerDashboard.list[i];
-                player.activeFrame.SetActive(currentPlayerIndex == i);
-            }
+            Player.StartTurn(playerIndex);
         }
 
         void SetTurn(int number)
         {
             turn = number;
             turnText.text = string.Format("第{0}回合", turn + 1);
+        }
+        void IncreaseTurn()
+        {
+            SetTurn(turn + 1);
         }
     }
 }

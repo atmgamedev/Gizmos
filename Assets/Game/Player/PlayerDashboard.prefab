@@ -285,6 +285,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46a3227ac4a2d74aabd64b2255812f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energyUIs:
+  - energy: 0
+    amountText: {fileID: 8273671812177365465}
+  - energy: 1
+    amountText: {fileID: 302935134329138557}
+  - energy: 2
+    amountText: {fileID: 646735487716620186}
+  - energy: 3
+    amountText: {fileID: 6271118041070534114}
   playerName: 
   score: 0
   star: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,17 +8,38 @@ namespace Gizmos
 {
     public class PlayerDashboard : MonoBehaviour
     {
+        [Serializable]
+        private class EnergyUI
+        {
+            [SerializeField] Energy energy;
+            public Energy Energy => energy;
+            [SerializeField] TextMeshProUGUI amountText;
+            public TextMeshProUGUI AmountText => amountText;
+        }
+        [SerializeField] EnergyUI[] energyUIs;
+        Dictionary<Energy, TextMeshProUGUI> energyUIDict = new Dictionary<Energy, TextMeshProUGUI>();
+
         public class EnergyInfo
         {
-            public int green;
-            public int blue;
-            public int yellow;
-            public int red;
+            Dictionary<Energy, int> dict = new Dictionary<Energy, int>
+            {
+                { Energy.Green, 0 },
+                { Energy.Blue, 0 },
+                { Energy.Yellow, 0 },
+                { Energy.Red, 0 },
+            };
+
+            public int this[Energy energy]
+            {
+                get => dict[energy];
+                set => dict[energy] = value;
+            }
 
             public int limit;
 
-            public int Amount => green + blue + yellow + red;
+            public int Amount => dict[Energy.Green] + dict[Energy.Blue] + dict[Energy.Yellow] + dict[Energy.Red];
         }
+        public EnergyInfo energyInfo = new EnergyInfo();
 
         public class FileInfo
         {
@@ -26,7 +48,9 @@ namespace Gizmos
             public int limit;
 
             public int Amount => filedCards.Count;
+            public bool CanFile => Amount < limit;
         }
+        public FileInfo fileInfo = new FileInfo();
 
         public class EffectInfo
         {
@@ -40,9 +64,6 @@ namespace Gizmos
         public int score;
         public int star;
 
-        public EnergyInfo energyInfo = new EnergyInfo();
-        public FileInfo fileInfo = new FileInfo();
-
         public int researchAmount;
 
         public GameObject activeFrame;
@@ -54,32 +75,31 @@ namespace Gizmos
         [SerializeField] TextMeshProUGUI researchText;
         [SerializeField] TextMeshProUGUI gizmoText;
 
-        [SerializeField] TextMeshProUGUI greenEnergyText;
-        [SerializeField] TextMeshProUGUI blueEnergyText;
-        [SerializeField] TextMeshProUGUI yellowEnergyText;
-        [SerializeField] TextMeshProUGUI redEnergyText;
         [SerializeField] TextMeshProUGUI energyLimitText;
-
-        public static List<PlayerDashboard> list = new List<PlayerDashboard>();
 
         void Awake()
         {
-            playerName = string.Format("Player {0}", list.Count.ToString());
-            nameText.text = playerName;
+            for (int i = 0, length = energyUIs.Length; i < length; i++)
+            {
+                var e = energyUIs[i];
+                energyUIDict.Add(e.Energy, e.AmountText);
+            }
 
             SetScore(0);
             SetStar(0);
-            SetGreenEnergy(0);
-            SetBlueEnergy(0);
-            SetYellowEnergy(0);
-            SetRedEnergy(0);
+            SetEnergy(Energy.Green, 0);
+            SetEnergy(Energy.Blue, 0);
+            SetEnergy(Energy.Yellow, 0);
+            SetEnergy(Energy.Red, 0);
             SetEnergyLimit(5);
             SetFileLimit(1);
             SetResearchAmount(3);
-
-            list.Add(this);
         }
 
+        public void SetPlayerName(string playerName)
+        {
+            nameText.text = playerName;
+        }
         void SetScore(int number)
         {
             score = number;
@@ -91,25 +111,14 @@ namespace Gizmos
             scoreText.text = star.ToString();
         }
 
-        void SetGreenEnergy(int number)
+        public void AddEnergy(Energy energy)
         {
-            energyInfo.green = number;
-            greenEnergyText.text = number.ToString();
+            SetEnergy(energy, energyInfo[energy] + 1);
         }
-        void SetBlueEnergy(int number)
+        void SetEnergy(Energy energy, int number)
         {
-            energyInfo.blue = number;
-            blueEnergyText.text = number.ToString();
-        }
-        void SetYellowEnergy(int number)
-        {
-            energyInfo.yellow = number;
-            yellowEnergyText.text = number.ToString();
-        }
-        void SetRedEnergy(int number)
-        {
-            energyInfo.red = number;
-            redEnergyText.text = number.ToString();
+            energyUIDict[energy].text = number.ToString();
+            energyInfo[energy] = number;
         }
         void SetEnergyLimit(int number)
         {
