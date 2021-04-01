@@ -4,8 +4,9 @@ using UnityEngine.Assertions;
 
 namespace Gizmos
 {
+
     /// <summary>
-    /// ·¢Ã÷
+    /// å‘æ˜
     /// </summary>
     public abstract class Gizmo
     {
@@ -22,7 +23,7 @@ namespace Gizmos
 
         public override string GetEffectDescription()
         {
-            return "´æµµºóËæ»úÃşÇò";
+            return "å­˜æ¡£åéšæœºæ‘¸çƒ";
         }
     }
 
@@ -40,12 +41,12 @@ namespace Gizmos
                 colorTexts[i] = EnergyUtility.GetEnergyColorText(effect.energies[i]);
             }
             var sb = new StringBuilder();
-            sb.AppendFormat("Ãş{0}Çò", colorTexts[0]);
+            sb.AppendFormat("æ‘¸{0}çƒ", colorTexts[0]);
             for (int i = 1, length = colorTexts.Length; i < length; i++)
             {
-                sb.AppendFormat("»ò{0}Çò", colorTexts[0]);
+                sb.AppendFormat("æˆ–{0}çƒ", colorTexts[0]);
             }
-            sb.Append("ºóËæ»úÃşÇò");
+            sb.Append("åéšæœºæ‘¸çƒ");
             return sb.ToString();
         }
     }
@@ -64,12 +65,12 @@ namespace Gizmos
                 colorTexts[i] = EnergyUtility.GetEnergyColorText(effect.energies[i]);
             }
             var sb = new StringBuilder();
-            sb.AppendFormat("Ãş{0}¿¨", colorTexts[0]);
+            sb.AppendFormat("æ‘¸{0}å¡", colorTexts[0]);
             for (int i = 1, length = colorTexts.Length; i < length; i++)
             {
-                sb.AppendFormat("»ò{0}¿¨", colorTexts[0]);
+                sb.AppendFormat("æˆ–{0}å¡", colorTexts[0]);
             }
-            sb.Append("ºóÃşÇò");
+            sb.Append("åæ‘¸çƒ");
             return sb.ToString();
         }
     }
@@ -88,12 +89,12 @@ namespace Gizmos
                 colorTexts[i] = EnergyUtility.GetEnergyColorText(effect.energies[i]);
             }
             var sb = new StringBuilder();
-            sb.AppendFormat("Ãş{0}¿¨", colorTexts[0]);
+            sb.AppendFormat("æ‘¸{0}å¡", colorTexts[0]);
             for (int i = 1, length = colorTexts.Length; i < length; i++)
             {
-                sb.AppendFormat("»ò{0}¿¨", colorTexts[0]);
+                sb.AppendFormat("æˆ–{0}å¡", colorTexts[0]);
             }
-            sb.Append("ºóµÃ1ĞÇ");
+            sb.Append("åå¾—1æ˜Ÿ");
             return sb.ToString();
         }
     }
@@ -112,12 +113,12 @@ namespace Gizmos
                 colorTexts[i] = EnergyUtility.GetEnergyColorText(effect.energies[i]);
             }
             var sb = new StringBuilder();
-            sb.AppendFormat("½«{0}Çò", colorTexts[0]);
+            sb.AppendFormat("å°†{0}çƒ", colorTexts[0]);
             for (int i = 1, length = colorTexts.Length; i < length; i++)
             {
-                sb.AppendFormat("»ò{0}Çò", colorTexts[0]);
+                sb.AppendFormat("æˆ–{0}çƒ", colorTexts[0]);
             }
-            sb.Append("×ª»»³ÉÈÎÒâÑÕÉ«");
+            sb.Append("è½¬æ¢æˆä»»æ„é¢œè‰²");
             return sb.ToString();
         }
     }
@@ -136,12 +137,12 @@ namespace Gizmos
                 colorTexts[i] = EnergyUtility.GetEnergyColorText(effect.energies[i]);
             }
             var sb = new StringBuilder();
-            sb.AppendFormat("½«{0}Çò", colorTexts[0]);
+            sb.AppendFormat("å°†{0}çƒ", colorTexts[0]);
             for (int i = 1, length = colorTexts.Length; i < length; i++)
             {
-                sb.AppendFormat("»ò{0}Çò", colorTexts[0]);
+                sb.AppendFormat("æˆ–{0}çƒ", colorTexts[0]);
             }
-            sb.Append("·ÖÁÑ³É2¸ö");
+            sb.Append("åˆ†è£‚æˆ2ä¸ª");
             return sb.ToString();
         }
     }
@@ -157,10 +158,10 @@ namespace Gizmos
             switch (effect.type)
             {
                 case UpgradeEffect.Type.StorageAdd1ResearchAdd1:
-                    desc = "ÇòÉÏÏŞºÍÑĞ¾¿+1";
+                    desc = "çƒä¸Šé™å’Œç ”ç©¶+1";
                     break;
                 case UpgradeEffect.Type.StorageAdd1FileAdd1:
-                    desc = "ÇòÉÏÏŞºÍ´æµµ+1";
+                    desc = "çƒä¸Šé™å’Œå­˜æ¡£+1";
                     break;
             }
             return desc;

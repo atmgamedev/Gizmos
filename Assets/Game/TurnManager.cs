@@ -16,7 +16,7 @@ namespace Gizmos
             ActivePlayer(currentPlayerIndex);
         }
 
-        public void FinishTurn()
+        public void PlayerFinishTurn()
         {
             NextPlayer();
         }
@@ -44,7 +44,7 @@ namespace Gizmos
         void SetTurn(int number)
         {
             turn = number;
-            turnText.text = string.Format("µÚ{0}»ØºÏ", turn + 1);
+            turnText.text = string.Format("ç¬¬{0}å›åˆ", turn + 1);
         }
     }
 }

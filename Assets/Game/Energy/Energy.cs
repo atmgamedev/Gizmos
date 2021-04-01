@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Gizmos
 {
     /// <summary>
-    /// ±¨÷È
+    /// ÁàÜÁè†
     /// </summary>
     public enum Energy
     {
@@ -44,16 +44,16 @@ namespace Gizmos
             switch (energy)
             {   
                 case Energy.Green:
-                    t = "¬Ã";
+                    t = "Áªø";
                     break;
                 case Energy.Blue:
-                    t = "¿∂";
+                    t = "Ëìù";
                     break;
                 case Energy.Yellow:
-                    t = "ª∆";
+                    t = "ÈªÑ";
                     break;
                 case Energy.Red:
-                    t = "∫Ï";
+                    t = "Á∫¢";
                     break;
                 default:
                     throw new System.Exception();

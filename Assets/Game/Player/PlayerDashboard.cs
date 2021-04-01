@@ -58,7 +58,7 @@ namespace Gizmos
         [SerializeField] TextMeshProUGUI blueEnergyText;
         [SerializeField] TextMeshProUGUI yellowEnergyText;
         [SerializeField] TextMeshProUGUI redEnergyText;
-        [SerializeField] TextMeshProUGUI totalEnergyText;
+        [SerializeField] TextMeshProUGUI energyLimitText;
 
         public static List<PlayerDashboard> list = new List<PlayerDashboard>();
 
@@ -69,7 +69,11 @@ namespace Gizmos
 
             SetScore(0);
             SetStar(0);
-            SetEngergyLimit(5);
+            SetGreenEnergy(0);
+            SetBlueEnergy(0);
+            SetYellowEnergy(0);
+            SetRedEnergy(0);
+            SetEnergyLimit(5);
             SetFileLimit(1);
             SetResearchAmount(3);
 
@@ -86,7 +90,28 @@ namespace Gizmos
             star = number;
             scoreText.text = star.ToString();
         }
-        void SetEngergyLimit(int number)
+
+        void SetGreenEnergy(int number)
+        {
+            energyInfo.green = number;
+            greenEnergyText.text = number.ToString();
+        }
+        void SetBlueEnergy(int number)
+        {
+            energyInfo.blue = number;
+            blueEnergyText.text = number.ToString();
+        }
+        void SetYellowEnergy(int number)
+        {
+            energyInfo.yellow = number;
+            yellowEnergyText.text = number.ToString();
+        }
+        void SetRedEnergy(int number)
+        {
+            energyInfo.red = number;
+            redEnergyText.text = number.ToString();
+        }
+        void SetEnergyLimit(int number)
         {
             energyInfo.limit = number;
             storageText.text = string.Format("{0}/{1}", energyInfo.Amount, energyInfo.limit);

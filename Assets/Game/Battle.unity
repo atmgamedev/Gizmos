@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 77382812}
   - component: {fileID: 77382811}
   m_Layer: 0
-  m_Name: EnergyManager
+  m_Name: EnergySphereManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 77382810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a471a4dfdf66c2a4daa97f408c647637, type: 3}
+  m_Script: {fileID: 11500000, guid: 82263cfe07dc54256b0b9241d243c97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sphereImages:
@@ -275,6 +275,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 804325148408457617, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
   m_PrefabInstance: {fileID: 88448378}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &124614885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
+  m_PrefabInstance: {fileID: 286076995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5c1d075afefbd4cbea721932eee354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &132759061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -954,6 +965,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &369979082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
+  m_PrefabInstance: {fileID: 88448378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5c1d075afefbd4cbea721932eee354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &424528301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1283,7 +1305,7 @@ GameObject:
   - component: {fileID: 434484557}
   - component: {fileID: 434484556}
   m_Layer: 0
-  m_Name: GizmoManager
+  m_Name: GizmoCardManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,10 +1320,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 434484555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d9b84630967ad14e80cfa0b9209b7c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 50eccd164719346adac0b5fa9e27a2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gizmoConfig: {fileID: 11400000, guid: 12d6ae682ba46314cb18bf8191225cab, type: 2}
+  level1Cards:
+  - {fileID: 1341858025}
+  - {fileID: 124614885}
+  - {fileID: 369979082}
+  - {fileID: 972375623}
 --- !u!4 &434484557
 Transform:
   m_ObjectHideFlags: 0
@@ -1991,8 +2018,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u4E00\u7EA7\n\u7814\u7A76\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d4d806fb94056e14c984c49cefe80edd, type: 2}
-  m_sharedMaterial: {fileID: 3339610062518168304, guid: d4d806fb94056e14c984c49cefe80edd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 17d641245acd42e42b8606596ee30ef5, type: 2}
+  m_sharedMaterial: {fileID: 3339610062518168304, guid: 17d641245acd42e42b8606596ee30ef5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2396,6 +2423,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972375623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
+  m_PrefabInstance: {fileID: 1564260842}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5c1d075afefbd4cbea721932eee354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &989973396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,8 +2463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8787d1a5165fc54c8aba4cf3f1f3b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gizmoManager: {fileID: 0}
-  level1Cards: []
 --- !u!4 &989973398
 Transform:
   m_ObjectHideFlags: 0
@@ -3174,6 +3210,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 804325148408457617, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
   m_PrefabInstance: {fileID: 1302816536}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1341858025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
+  m_PrefabInstance: {fileID: 804325149098847829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5c1d075afefbd4cbea721932eee354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1350558494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3410,7 +3457,7 @@ GameObject:
   - component: {fileID: 1554689811}
   - component: {fileID: 1554689810}
   m_Layer: 5
-  m_Name: FinishTurnButton
+  m_Name: PlayerFinishTurnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3482,7 +3529,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 300285791}
         m_TargetAssemblyTypeName: Gizmos.TurnManager, Gizmos
-        m_MethodName: FinishTurn
+        m_MethodName: PlayerFinishTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

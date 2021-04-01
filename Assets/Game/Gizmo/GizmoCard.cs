@@ -5,7 +5,7 @@ using TMPro;
 namespace Gizmos
 {
     /// <summary>
-    /// ¿¨£¬Ã¿ÕÅ¿¨¶¼Ò»¸ö·¢Ã÷
+    /// å¡ï¼Œæ¯å¼ å¡éƒ½ä¸€ä¸ªå‘æ˜
     /// </summary>
     public class GizmoCard : MonoBehaviour
     {
@@ -20,7 +20,7 @@ namespace Gizmos
             background.color = EnergyUtility.GetEnergyColor(gizmo.costEnergy);
             effectText.text = gizmo.GetEffectDescription();
             string colorText = EnergyUtility.GetEnergyColorText(gizmo.costEnergy);
-            requirementText.text = string.Format("{0}Çò¡Á{1}", colorText, gizmo.costAmount);
+            requirementText.text = string.Format("{0}çƒÃ—{1}", colorText, gizmo.costAmount);
         }
     }
 }
