@@ -61,9 +61,13 @@ namespace Gizmos
         public class EffectInfo
         {
             public List<GizmoEffect> effects = new List<GizmoEffect>();
+            public int limit = 16; // TODO: should load from config
 
             public int Amount => effects.Count;
+            public string EffectText => string.Format("{0}/{1}", Amount, limit);
         }
+
+        public EffectInfo effectInfo = new EffectInfo();
 
         public string playerName;
 
@@ -100,6 +104,7 @@ namespace Gizmos
             SetEnergyLimit(5);
             SetFileLimit(1);
             SetResearchAmount(3);
+            ResetEffect();
         }
 
         public void SetPlayerName(string playerName)
@@ -129,11 +134,20 @@ namespace Gizmos
         {
             SetEnergy(energy, energyStorage[energy] + 1);
         }
+        public void CostEnergy(Energy energy, int number)
+        {
+            SetEnergy(energy, energyStorage[energy] - number);
+        }
         void SetEnergy(Energy energy, int number)
         {
+            Assert.IsTrue(number >= 0);
             energyUIDict[energy].text = number.ToString();
             energyStorage[energy] = number;
             UpdateStorageText();
+        }
+        public void AddEnergyLimit(int number)
+        {
+            SetEnergyLimit(energyStorage.limit + number);
         }
         void SetEnergyLimit(int number)
         {
@@ -165,13 +179,24 @@ namespace Gizmos
             fileStorage.limit = number;
             fileText.text = fileStorage.FileText;
         }
-        public void AddResearchAmount(int number) {
+        public void AddResearchAmount(int number)
+        {
             SetResearchAmount(researchAmount + number);
         }
         void SetResearchAmount(int number)
         {
             researchAmount = number;
             researchText.text = researchAmount.ToString();
+        }
+        public void AddEffect(GizmoEffect effect)
+        {
+            effectInfo.effects.Add(effect);
+            gizmoText.text = effectInfo.EffectText;
+        }
+        void ResetEffect()
+        {
+            effectInfo.effects = new List<GizmoEffect>();
+            gizmoText.text = effectInfo.EffectText;
         }
     }
 }

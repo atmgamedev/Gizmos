@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,10 +16,15 @@ namespace Gizmos
 
         public Gizmo Gizmo { get; private set; }
 
+        public static event Action<int, int> OnGizmoCardBuild = delegate { };
+        public static event Action<int, int> OnGizmoCardFile = delegate { };
+
         void OnValidate()
         {
             image = GetComponent<Image>();
             button = GetComponent<Button>();
+
+            button.onClick.AddListener(OnClick);
         }
 
         public void SetGizmo(Gizmo gizmo)
@@ -33,6 +39,13 @@ namespace Gizmos
         public void SetAffordablity(bool affordability)
         {
             button.interactable = affordability;
+        }
+
+        void OnClick()
+        {
+            int index = transform.GetSiblingIndex();
+            // TODO: check if it is a build action or a file action
+            OnGizmoCardBuild(index, Gizmo.level);
         }
     }
 }

@@ -12,7 +12,8 @@ namespace Gizmos
     {
         public Energy costEnergy;
         public int costAmount;
-
+        public int level;
+        public abstract void AddEffectToCurrentPlayer();
         public abstract string GetEffectDescription();
     }
 
@@ -20,7 +21,10 @@ namespace Gizmos
     public class FileRandomGizmo : Gizmo
     {
         public FileRandomEffect effect;
-
+        public override void AddEffectToCurrentPlayer()
+        {
+            Player.CurrentPlayer.Dashboard.AddEffect(effect);
+        }
         public override string GetEffectDescription()
         {
             return "存档后随机摸球";
@@ -31,6 +35,10 @@ namespace Gizmos
     public class PickRandomGizmo : Gizmo
     {
         public PickRandomEffect effect;
+        public override void AddEffectToCurrentPlayer()
+        {
+            Player.CurrentPlayer.Dashboard.AddEffect(effect);
+        }
 
         public override string GetEffectDescription()
         {
@@ -55,6 +63,10 @@ namespace Gizmos
     public class BuildPickGizmo : Gizmo
     {
         public BuildPickEffect effect;
+        public override void AddEffectToCurrentPlayer()
+        {
+            Player.CurrentPlayer.Dashboard.AddEffect(effect);
+        }
 
         public override string GetEffectDescription()
         {
@@ -79,6 +91,10 @@ namespace Gizmos
     public class BuildStarGizmo : Gizmo
     {
         public BuildStarEffect effect;
+        public override void AddEffectToCurrentPlayer()
+        {
+            Player.CurrentPlayer.Dashboard.AddEffect(effect);
+        }
 
         public override string GetEffectDescription()
         {
@@ -103,6 +119,10 @@ namespace Gizmos
     public class ConverterGizmo : Gizmo
     {
         public ConverterEffect effect;
+        public override void AddEffectToCurrentPlayer()
+        {
+            Player.CurrentPlayer.Dashboard.AddEffect(effect);
+        }
 
         public override string GetEffectDescription()
         {
@@ -127,6 +147,10 @@ namespace Gizmos
     public class DuplicatorGizmo : Gizmo
     {
         public DuplicatorEffect effect;
+        public override void AddEffectToCurrentPlayer()
+        {
+            Player.CurrentPlayer.Dashboard.AddEffect(effect);
+        }
 
         public override string GetEffectDescription()
         {
@@ -151,6 +175,20 @@ namespace Gizmos
     public class UpgradeGizmo : Gizmo
     {
         public UpgradeEffect effect;
+        public override void AddEffectToCurrentPlayer()
+        {
+            switch (effect.type)
+            {
+                case UpgradeEffect.Type.StorageAdd1ResearchAdd1:
+                    Player.CurrentPlayer.Dashboard.AddEnergyLimit(1);
+                    Player.CurrentPlayer.Dashboard.AddResearchAmount(1);
+                    break;
+                case UpgradeEffect.Type.StorageAdd1FileAdd1:
+                    Player.CurrentPlayer.Dashboard.AddEnergyLimit(1);
+                    Player.CurrentPlayer.Dashboard.AddFileLimit(1);
+                    break;
+            }
+        }
 
         public override string GetEffectDescription()
         {
