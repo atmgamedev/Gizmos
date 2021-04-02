@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 using TMPro;
 
@@ -38,6 +39,9 @@ namespace Gizmos
             public int limit;
 
             public int Amount => dict[Energy.Green] + dict[Energy.Blue] + dict[Energy.Yellow] + dict[Energy.Red];
+            public bool Overflow => Amount > limit;
+
+            public string StorageText => string.Format("{0}/{1}", Amount, limit);
         }
         public EnergyStorage energyStorage = new EnergyStorage();
 
@@ -49,6 +53,8 @@ namespace Gizmos
 
             public int Amount => filedCards.Count;
             public bool CanFile => Amount < limit;
+
+            public string FileText => string.Format("{0}/{1}", Amount, limit);
         }
         public FileStorage fileStorage = new FileStorage();
 
@@ -100,10 +106,18 @@ namespace Gizmos
         {
             nameText.text = playerName;
         }
+        public void AddScore(int number)
+        {
+            SetScore(score + number);
+        }
         void SetScore(int number)
         {
             score = number;
             scoreText.text = score.ToString();
+        }
+        public void AddStar(int number)
+        {
+            SetStar(star + number);
         }
         void SetStar(int number)
         {
@@ -119,16 +133,40 @@ namespace Gizmos
         {
             energyUIDict[energy].text = number.ToString();
             energyStorage[energy] = number;
+            UpdateStorageText();
         }
         void SetEnergyLimit(int number)
         {
             energyStorage.limit = number;
-            storageText.text = string.Format("{0}/{1}", energyStorage.Amount, energyStorage.limit);
+            UpdateStorageText();
+        }
+        void UpdateStorageText() {
+            storageText.text = energyStorage.StorageText;
+            storageText.color = energyStorage.Overflow ? Color.red : Color.white;
+        }
+        public void AddFile(GizmoCard card)
+        {
+            Assert.IsTrue(fileStorage.CanFile);
+            fileStorage.filedCards.Add(card);
+        }
+        public void BuildFromFile(GizmoCard card)
+        {
+            Assert.IsNotNull(fileStorage.filedCards);
+            Assert.IsNotNull(fileStorage.filedCards.Find(filedCard => filedCard == card));
+            fileStorage.filedCards.Remove(card);
+            fileText.text = fileStorage.FileText;
+        }
+        public void AddFileLimit(int number)
+        {
+            SetFileLimit(fileStorage.limit + number);
         }
         void SetFileLimit(int number)
         {
             fileStorage.limit = number;
-            fileText.text = string.Format("{0}/{1}", fileStorage.Amount, fileStorage.limit);
+            fileText.text = fileStorage.FileText;
+        }
+        public void AddResearchAmount(int number) {
+            SetResearchAmount(researchAmount + number);
         }
         void SetResearchAmount(int number)
         {
