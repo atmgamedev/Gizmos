@@ -11,7 +11,9 @@ namespace Gizmos
         public static List<Player> list = new List<Player>();
         public static int CurrentPlayerIndex { get; private set; }
         public static Player CurrentPlayer => list[CurrentPlayerIndex];
-        public static int NextPlayerIndex => (CurrentPlayerIndex + 1) & list.Count;
+        public static int NextPlayerIndex => (CurrentPlayerIndex + 1) % list.Count;
+
+        List<PlayerAction> availableActions = new List<PlayerAction>();
 
         void Awake()
         {
@@ -36,35 +38,38 @@ namespace Gizmos
         }
         void StartTurn()
         {
+            InitAvailableActions();
+            ActionPanel.UpdateCardsAffordability(dashboard.energyStorage);
+        }
+        void InitAvailableActions()
+        {
+            availableActions.Clear();
+            if (dashboard.fileStorage.CanFile)
+            {
+                availableActions.Add(PlayerAction.File);
+            }
+            availableActions.Add(PlayerAction.Pick);
+            availableActions.Add(PlayerAction.Build);
+            availableActions.Add(PlayerAction.Research);
+        }
+        public void OnAct()
+        {
             GetAvailableActions();
         }
         void GetAvailableActions()
         {
-            var actions = new List<PlayerAction>();
-            if (dashboard.fileInfo.CanFile)
-            {
-                actions.Add(PlayerAction.File);
-            }
-            actions.Add(PlayerAction.Pick);
-            actions.Add(PlayerAction.Build);
-            actions.Add(PlayerAction.Research);
+            availableActions.Clear();
 
-            if (actions.Count == 0)
+            // TODO
+
+            if (availableActions.Count == 0)
             {
                 EndTurn();
+                TurnManager.CurrentPlayerEndTurn();
             }
         }
-        void OnPlayerAct()
-        {
-            // TODO
 
-        }
-
-        public static void CurrentPlayerEndTurn()
-        {
-            // TODO
-        }
-        void EndTurn()
+        public void EndTurn()
         {
             // TODO
         }

@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,14 +12,15 @@ namespace Gizmos
 
         void Awake()
         {
-            level1Gizmos = gizmoConfig.GetLevelGizmoList();
-        }
-
-        void Start()
-        {
+            InitLevel1Gizmos();
             InitLevel1Cards();
         }
 
+        void InitLevel1Gizmos()
+        {
+            level1Gizmos = gizmoConfig.GetLevelGizmoList();
+            MathUtility.RandomSequence(level1Gizmos);
+        }
         void InitLevel1Cards()
         {
             for (int i = 0, length = level1Cards.Length; i < length; i++)
@@ -32,9 +32,12 @@ namespace Gizmos
 
         Gizmo DrawLevel1Gizmo()
         {
-            int r = Random.Range(0, level1Gizmos.Count);
-            Gizmo gizmo = level1Gizmos[r];
-            level1Gizmos.RemoveAt(r);
+            if (level1Gizmos.Count == 0)
+            {
+                return null ;
+            }
+            Gizmo gizmo = level1Gizmos[0];
+            level1Gizmos.RemoveAt(0);
             return gizmo;
         }
     }

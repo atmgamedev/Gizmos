@@ -19,7 +19,7 @@ namespace Gizmos
         [SerializeField] EnergyUI[] energyUIs;
         Dictionary<Energy, TextMeshProUGUI> energyUIDict = new Dictionary<Energy, TextMeshProUGUI>();
 
-        public class EnergyInfo
+        public class EnergyStorage
         {
             Dictionary<Energy, int> dict = new Dictionary<Energy, int>
             {
@@ -39,9 +39,9 @@ namespace Gizmos
 
             public int Amount => dict[Energy.Green] + dict[Energy.Blue] + dict[Energy.Yellow] + dict[Energy.Red];
         }
-        public EnergyInfo energyInfo = new EnergyInfo();
+        public EnergyStorage energyStorage = new EnergyStorage();
 
-        public class FileInfo
+        public class FileStorage
         {
             public List<GizmoCard> filedCards = new List<GizmoCard>();
 
@@ -50,7 +50,7 @@ namespace Gizmos
             public int Amount => filedCards.Count;
             public bool CanFile => Amount < limit;
         }
-        public FileInfo fileInfo = new FileInfo();
+        public FileStorage fileStorage = new FileStorage();
 
         public class EffectInfo
         {
@@ -113,22 +113,22 @@ namespace Gizmos
 
         public void AddEnergy(Energy energy)
         {
-            SetEnergy(energy, energyInfo[energy] + 1);
+            SetEnergy(energy, energyStorage[energy] + 1);
         }
         void SetEnergy(Energy energy, int number)
         {
             energyUIDict[energy].text = number.ToString();
-            energyInfo[energy] = number;
+            energyStorage[energy] = number;
         }
         void SetEnergyLimit(int number)
         {
-            energyInfo.limit = number;
-            storageText.text = string.Format("{0}/{1}", energyInfo.Amount, energyInfo.limit);
+            energyStorage.limit = number;
+            storageText.text = string.Format("{0}/{1}", energyStorage.Amount, energyStorage.limit);
         }
         void SetFileLimit(int number)
         {
-            fileInfo.limit = number;
-            fileText.text = string.Format("{0}/{1}", fileInfo.Amount, fileInfo.limit);
+            fileStorage.limit = number;
+            fileText.text = string.Format("{0}/{1}", fileStorage.Amount, fileStorage.limit);
         }
         void SetResearchAmount(int number)
         {

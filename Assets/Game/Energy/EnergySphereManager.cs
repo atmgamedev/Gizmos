@@ -44,10 +44,10 @@ namespace Gizmos
                 }
             }
             hiddenSpheres = new List<Energy>(sphereAmount);
-            int[] indexes = MathUtility.FisherYatesShuffle(sphereAmount, sphereAmount);
+            MathUtility.RandomSequence(spheres);
             for (int i = 0; i < sphereAmount; i++)
             {
-                hiddenSpheres.Add(spheres[indexes[i]]);
+                hiddenSpheres.Add(spheres[i]);
             }
         }
 
@@ -74,11 +74,12 @@ namespace Gizmos
         void CurrentPlayerPick(int index)
         {
             Energy e = DisplaySpheres[index];
-            Player.CurrentPlayer.Dashboard.AddEnergy(e);
             DisplaySpheres.RemoveAt(index);
             SlideOutOne();
             UpdateDisplaySpheresUI();
             DisableInteraction();
+            Player.CurrentPlayer.Dashboard.AddEnergy(e);
+            Player.CurrentPlayer.OnAct();
         }
 
         void UpdateDisplaySpheresUI()

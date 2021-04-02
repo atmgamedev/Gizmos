@@ -21,6 +21,12 @@ namespace Gizmos
             PlayerStartTurn(Player.CurrentPlayerIndex);
         }
 
+        public static void CurrentPlayerEndTurn()
+        {
+            Player.CurrentPlayer.EndTurn();
+            GameManager.CheckGameEnd();
+            NextPlayerStartTurn();
+        }
         public static void NextPlayerStartTurn()
         {
             int nextPlayerIndex = Player.NextPlayerIndex;

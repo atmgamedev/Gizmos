@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5c1d075afefbd4cbea721932eee354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 804325148408457619}
   effectText: {fileID: 1669837226418196205}
   requirementText: {fileID: 804325149207313784}
 --- !u!1 &804325149207313790
@@ -150,7 +149,7 @@ GameObject:
   - component: {fileID: 804325149207313787}
   - component: {fileID: 804325149207313784}
   m_Layer: 5
-  m_Name: Requirement
+  m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

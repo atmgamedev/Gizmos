@@ -6,24 +6,29 @@ namespace Gizmos
     public class ActionPanel : MonoBehaviour
     {
         [SerializeField] Button endTurnButton;
+        [SerializeField] GizmoCard[] cards;
 
-        [SerializeField] GameManager gameManager;
-        [SerializeField] TurnManager turnManager;
+        static ActionPanel instance;
 
         void Awake()
         {
-            endTurnButton.onClick.AddListener(EndTurn);
+            instance = this;
+
+            endTurnButton.onClick.AddListener(TurnManager.CurrentPlayerEndTurn);
         }
         void OnDestroy()
         {
-            endTurnButton.onClick.RemoveListener(EndTurn);
+            endTurnButton.onClick.RemoveListener(TurnManager.CurrentPlayerEndTurn);
         }
 
-        void EndTurn()
+        public static void UpdateCardsAffordability(PlayerDashboard.EnergyStorage energyStorage)
         {
-            Player.CurrentPlayerEndTurn();
-            GameManager.CheckGameEnd();
-            TurnManager.NextPlayerStartTurn();
+            for (int i = 0, length = instance.cards.Length; i < length; i++)
+            {
+                var card = instance.cards[i];
+                var gizmo = card.Gizmo;
+                card.SetAffordablity(energyStorage[gizmo.costEnergy] >= gizmo.costAmount);
+            }
         }
     }
 }

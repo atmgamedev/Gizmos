@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
@@ -44,6 +45,38 @@ namespace Gizmos
             int[] result = new int[pickCount];
             Array.Copy(indexes, result, pickCount);
             return result;
+        }
+
+        /// <summary>
+        /// 打乱顺序
+        /// </summary>
+        public static void RandomSequence<T>(T[] array)
+        {
+            int length = array.Length;
+            int[] indexes = FisherYatesShuffle(length, length);
+            T[] newArray = new T[length];
+            for (int i = 0; i < length; i++)
+            {
+                newArray[i] = array[indexes[i]];
+            }
+            for (int i = 0; i < length; i++)
+            {
+                array[i] = newArray[i];
+            }
+        }
+        public static void RandomSequence<T>(List<T> list)
+        {
+            int length = list.Count;
+            int[] indexes = FisherYatesShuffle(length, length);
+            T[] newArray = new T[length];
+            for (int i = 0; i < length; i++)
+            {
+                newArray[i] = list[indexes[i]];
+            }
+            for (int i = 0; i < length; i++)
+            {
+                list[i] = newArray[i];
+            }
         }
 
         /// <summary>
