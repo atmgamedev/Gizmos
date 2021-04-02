@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Gizmos
 {
     /// <summary>
-    /// ·¢Ã÷ÅäÖÃ
+    /// å‘æ˜é…ç½®
     /// </summary>
     [CreateAssetMenu(fileName = "GizmoConfig", menuName = "Game/GizmoConfig")]
     public class GizmoConfig : ScriptableObject
