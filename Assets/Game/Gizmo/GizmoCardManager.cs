@@ -17,12 +17,12 @@ namespace Gizmos
             InitLevel1Cards();
 
             GizmoCard.OnGizmoCardBuild += CurrentPlayerBuild;
-            GizmoCard.OnGizmoCardBuild += CurrentPlayerFile;
+            GizmoCard.OnGizmoCardFile += CurrentPlayerFile;
         }
 
         private void OnDestroy() {
             GizmoCard.OnGizmoCardBuild -= CurrentPlayerBuild;
-            GizmoCard.OnGizmoCardBuild -= CurrentPlayerFile;
+            GizmoCard.OnGizmoCardFile -= CurrentPlayerFile;
         }
 
         void InitLevel1Gizmos()
