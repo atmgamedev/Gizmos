@@ -56,6 +56,7 @@ namespace Gizmos
         {
             Gizmo gizmo = gizmoCard.Gizmo;
             Player.CurrentPlayer.Dashboard.CostEnergy(gizmo.costEnergy, gizmo.costAmount);
+            Player.CurrentPlayer.Dashboard.AddScore(gizmo.score);
             gizmoCard.Gizmo.AddEffectToCurrentPlayer();
         }
 

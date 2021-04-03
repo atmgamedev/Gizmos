@@ -13,6 +13,7 @@ namespace Gizmos
         public Energy costEnergy;
         public int costAmount;
         public int level;
+        public int score;
         public abstract void AddEffectToCurrentPlayer();
         public abstract string GetEffectDescription();
     }
