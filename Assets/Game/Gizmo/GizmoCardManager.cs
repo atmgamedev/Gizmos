@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Gizmos
 {
@@ -14,6 +15,14 @@ namespace Gizmos
         {
             InitLevel1Gizmos();
             InitLevel1Cards();
+
+            GizmoCard.OnGizmoCardBuild += CurrentPlayerBuild;
+            GizmoCard.OnGizmoCardFile += CurrentPlayerFile;
+        }
+
+        private void OnDestroy() {
+            GizmoCard.OnGizmoCardBuild -= CurrentPlayerBuild;
+            GizmoCard.OnGizmoCardFile -= CurrentPlayerFile;
         }
 
         void InitLevel1Gizmos()
@@ -25,20 +34,58 @@ namespace Gizmos
         {
             for (int i = 0, length = level1Cards.Length; i < length; i++)
             {
-                Gizmo gizmo = DrawLevel1Gizmo();
+                Gizmo gizmo = DrawGizmoOfLevel(1);
                 level1Cards[i].SetGizmo(gizmo);
             }
         }
 
-        Gizmo DrawLevel1Gizmo()
+        Gizmo DrawGizmoOfLevel(int level)
         {
+            // TODO: only support level1 now
+            Assert.AreEqual(1, level);
             if (level1Gizmos.Count == 0)
             {
-                return null ;
+                return null;
             }
             Gizmo gizmo = level1Gizmos[0];
             level1Gizmos.RemoveAt(0);
             return gizmo;
+        }
+
+        void BuildGizmoCard(GizmoCard gizmoCard)
+        {
+            Gizmo gizmo = gizmoCard.Gizmo;
+            Player.CurrentPlayer.Dashboard.CostEnergy(gizmo.costEnergy, gizmo.costAmount);
+            Player.CurrentPlayer.Dashboard.AddScore(gizmo.score);
+            gizmoCard.Gizmo.AddEffectToCurrentPlayer();
+        }
+
+        void FillGizmoCardAt(int index, int level)
+        {
+            // TODO: only support level1 now
+            Assert.AreEqual(1, level);
+            Gizmo gizmo = DrawGizmoOfLevel(1);
+            if (gizmo == null)
+            {
+                level1Cards[index].SetGizmo(null);
+                return;
+            }
+            level1Cards[index].SetGizmo(gizmo);
+        }
+
+        void CurrentPlayerBuild(int index, int level)
+        {
+            // TODO: only support level1 now
+            Assert.AreEqual(1, level);
+            BuildGizmoCard(level1Cards[index]);
+            FillGizmoCardAt(index, level);
+            Player.CurrentPlayer.OnAct();
+        }
+
+        void CurrentPlayerFile(int index, int level)
+        {
+            // TODO
+            Player.CurrentPlayer.OnAct();
         }
     }
 }

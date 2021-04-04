@@ -4,6 +4,7 @@ namespace Gizmos
     {
         File,
         Pick,
-        Build
+        Build,
+        BuildFromFile
     }
 }

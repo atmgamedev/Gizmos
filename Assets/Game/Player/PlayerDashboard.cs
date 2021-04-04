@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 using TMPro;
 
@@ -38,6 +39,9 @@ namespace Gizmos
             public int limit;
 
             public int Amount => dict[Energy.Green] + dict[Energy.Blue] + dict[Energy.Yellow] + dict[Energy.Red];
+            public bool Overflow => Amount > limit;
+
+            public string StorageText => string.Format("{0}/{1}", Amount, limit);
         }
         public EnergyStorage energyStorage = new EnergyStorage();
 
@@ -49,15 +53,21 @@ namespace Gizmos
 
             public int Amount => filedCards.Count;
             public bool CanFile => Amount < limit;
+
+            public string FileText => string.Format("{0}/{1}", Amount, limit);
         }
         public FileStorage fileStorage = new FileStorage();
 
         public class EffectInfo
         {
             public List<GizmoEffect> effects = new List<GizmoEffect>();
+            public int limit = 16; // TODO: should load from config
 
             public int Amount => effects.Count;
+            public string EffectText => string.Format("{0}/{1}", Amount, limit);
         }
+
+        public EffectInfo effectInfo = new EffectInfo();
 
         public string playerName;
 
@@ -94,16 +104,25 @@ namespace Gizmos
             SetEnergyLimit(5);
             SetFileLimit(1);
             SetResearchAmount(3);
+            ResetEffect();
         }
 
         public void SetPlayerName(string playerName)
         {
             nameText.text = playerName;
         }
+        public void AddScore(int number)
+        {
+            SetScore(score + number);
+        }
         void SetScore(int number)
         {
             score = number;
             scoreText.text = score.ToString();
+        }
+        public void AddStar(int number)
+        {
+            SetStar(star + number);
         }
         void SetStar(int number)
         {
@@ -115,25 +134,69 @@ namespace Gizmos
         {
             SetEnergy(energy, energyStorage[energy] + 1);
         }
+        public void CostEnergy(Energy energy, int number)
+        {
+            SetEnergy(energy, energyStorage[energy] - number);
+        }
         void SetEnergy(Energy energy, int number)
         {
+            Assert.IsTrue(number >= 0);
             energyUIDict[energy].text = number.ToString();
             energyStorage[energy] = number;
+            UpdateStorageText();
+        }
+        public void AddEnergyLimit(int number)
+        {
+            SetEnergyLimit(energyStorage.limit + number);
         }
         void SetEnergyLimit(int number)
         {
             energyStorage.limit = number;
-            storageText.text = string.Format("{0}/{1}", energyStorage.Amount, energyStorage.limit);
+            UpdateStorageText();
+        }
+        void UpdateStorageText() {
+            storageText.text = energyStorage.StorageText;
+            storageText.color = energyStorage.Overflow ? Color.red : Color.white;
+        }
+        public void AddFile(GizmoCard card)
+        {
+            Assert.IsTrue(fileStorage.CanFile);
+            fileStorage.filedCards.Add(card);
+        }
+        public void BuildFromFile(GizmoCard card)
+        {
+            Assert.IsNotNull(fileStorage.filedCards);
+            Assert.IsNotNull(fileStorage.filedCards.Find(filedCard => filedCard == card));
+            fileStorage.filedCards.Remove(card);
+            fileText.text = fileStorage.FileText;
+        }
+        public void AddFileLimit(int number)
+        {
+            SetFileLimit(fileStorage.limit + number);
         }
         void SetFileLimit(int number)
         {
             fileStorage.limit = number;
-            fileText.text = string.Format("{0}/{1}", fileStorage.Amount, fileStorage.limit);
+            fileText.text = fileStorage.FileText;
+        }
+        public void AddResearchAmount(int number)
+        {
+            SetResearchAmount(researchAmount + number);
         }
         void SetResearchAmount(int number)
         {
             researchAmount = number;
             researchText.text = researchAmount.ToString();
+        }
+        public void AddEffect(GizmoEffect effect)
+        {
+            effectInfo.effects.Add(effect);
+            gizmoText.text = effectInfo.EffectText;
+        }
+        void ResetEffect()
+        {
+            effectInfo.effects = new List<GizmoEffect>();
+            gizmoText.text = effectInfo.EffectText;
         }
     }
 }
