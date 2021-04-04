@@ -4,22 +4,22 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 using TMPro;
+using Sirenix.OdinInspector;
 
 namespace Gizmos
 {
     public class PlayerDashboard : MonoBehaviour
     {
-        [Serializable]
-        private class EnergyUI
-        {
-            [SerializeField] Energy energy;
-            public Energy Energy => energy;
-            [SerializeField] TextMeshProUGUI amountText;
-            public TextMeshProUGUI AmountText => amountText;
-        }
-        [SerializeField] EnergyUI[] energyUIs;
-        Dictionary<Energy, TextMeshProUGUI> energyUIDict = new Dictionary<Energy, TextMeshProUGUI>();
+        public string PlayerName { get; private set; }
+        [SerializeField] TextMeshProUGUI nameText;
 
+        public int Score { get; private set; }
+        [SerializeField] TextMeshProUGUI scoreText;
+
+        public int Star { get; private set; }
+        [SerializeField] TextMeshProUGUI starText;
+
+        #region Energy
         public class EnergyStorage
         {
             Dictionary<Energy, int> dict = new Dictionary<Energy, int>
@@ -45,6 +45,20 @@ namespace Gizmos
         }
         public EnergyStorage energyStorage = new EnergyStorage();
 
+        [Serializable]
+        class EnergyUI
+        {
+            [SerializeField] Energy energy;
+            public Energy Energy => energy;
+            [SerializeField] TextMeshProUGUI amountText;
+            public TextMeshProUGUI AmountText => amountText;
+        }
+        [SerializeField, TableList] EnergyUI[] energyUIs;
+        Dictionary<Energy, TextMeshProUGUI> energyUIDict = new Dictionary<Energy, TextMeshProUGUI>();
+        [SerializeField] TextMeshProUGUI energyStorageText;
+        #endregion
+
+        #region File
         public class FileStorage
         {
             public List<GizmoCard> filedCards = new List<GizmoCard>();
@@ -58,6 +72,10 @@ namespace Gizmos
         }
         public FileStorage fileStorage = new FileStorage();
 
+        [SerializeField] TextMeshProUGUI fileText;
+        #endregion
+
+        #region Effect
         public class EffectInfo
         {
             public List<GizmoEffect> effects = new List<GizmoEffect>();
@@ -66,26 +84,15 @@ namespace Gizmos
             public int Amount => effects.Count;
             public string EffectText => string.Format("{0}/{1}", Amount, limit);
         }
-
         public EffectInfo effectInfo = new EffectInfo();
+        #endregion
 
-        public string playerName;
-
-        public int score;
-        public int star;
-
-        public int researchAmount;
+        public int ResearchAmount { get; private set; }
 
         public GameObject activeFrame;
-        [SerializeField] TextMeshProUGUI nameText;
-        [SerializeField] TextMeshProUGUI scoreText;
-        [SerializeField] TextMeshProUGUI starText;
-        [SerializeField] TextMeshProUGUI storageText;
-        [SerializeField] TextMeshProUGUI fileText;
+
         [SerializeField] TextMeshProUGUI researchText;
         [SerializeField] TextMeshProUGUI gizmoText;
-
-        [SerializeField] TextMeshProUGUI energyLimitText;
 
         void Awake()
         {
@@ -109,25 +116,26 @@ namespace Gizmos
 
         public void SetPlayerName(string playerName)
         {
+            this.PlayerName = playerName;
             nameText.text = playerName;
         }
         public void AddScore(int number)
         {
-            SetScore(score + number);
+            SetScore(Score + number);
         }
         void SetScore(int number)
         {
-            score = number;
-            scoreText.text = score.ToString();
+            Score = number;
+            scoreText.text = Score.ToString();
         }
         public void AddStar(int number)
         {
-            SetStar(star + number);
+            SetStar(Star + number);
         }
         void SetStar(int number)
         {
-            star = number;
-            scoreText.text = star.ToString();
+            Star = number;
+            scoreText.text = Star.ToString();
         }
 
         public void AddEnergy(Energy energy)
@@ -155,8 +163,8 @@ namespace Gizmos
             UpdateStorageText();
         }
         void UpdateStorageText() {
-            storageText.text = energyStorage.StorageText;
-            storageText.color = energyStorage.Overflow ? Color.red : Color.white;
+            energyStorageText.text = energyStorage.StorageText;
+            energyStorageText.color = energyStorage.Overflow ? Color.red : Color.black;
         }
         public void AddFile(GizmoCard card)
         {
@@ -181,12 +189,12 @@ namespace Gizmos
         }
         public void AddResearchAmount(int number)
         {
-            SetResearchAmount(researchAmount + number);
+            SetResearchAmount(ResearchAmount + number);
         }
         void SetResearchAmount(int number)
         {
-            researchAmount = number;
-            researchText.text = researchAmount.ToString();
+            ResearchAmount = number;
+            researchText.text = ResearchAmount.ToString();
         }
         public void AddEffect(GizmoEffect effect)
         {

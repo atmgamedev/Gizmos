@@ -21,16 +21,16 @@ namespace Gizmos
             switch (energy)
             {
                 case Energy.Green:
-                    c = Color.green;
+                    ColorUtility.TryParseHtmlString("#52A845", out c);
                     break;
                 case Energy.Blue:
-                    c = Color.blue;
+                    ColorUtility.TryParseHtmlString("#0173BC", out c);
                     break;
                 case Energy.Yellow:
-                    c = Color.yellow;
+                    ColorUtility.TryParseHtmlString("#FFDE17", out c);
                     break;
                 case Energy.Red:
-                    c = Color.red;
+                    ColorUtility.TryParseHtmlString("#EB1C24", out c);
                     break;
                 default:
                     throw new System.Exception();

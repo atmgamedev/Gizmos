@@ -9,7 +9,8 @@ namespace Gizmos
     public class GizmoCard : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI effectText;
-        [SerializeField] TextMeshProUGUI requirementText;
+        [SerializeField] Image costImage;
+        [SerializeField] TextMeshProUGUI costText;
 
         [SerializeField, ReadOnly] Image image;
         [SerializeField, ReadOnly] Button button;
@@ -30,10 +31,11 @@ namespace Gizmos
         public void SetGizmo(Gizmo gizmo)
         {
             Gizmo = gizmo;
-            image.color = EnergyUtility.GetEnergyColor(gizmo.costEnergy);
+            Color c = EnergyUtility.GetEnergyColor(gizmo.costEnergy);
+            // image.color = c;
             effectText.text = gizmo.GetEffectDescription();
-            string colorText = EnergyUtility.GetEnergyColorText(gizmo.costEnergy);
-            requirementText.text = string.Format("{0}球×{1}", colorText, gizmo.costAmount);
+            costImage.color = c;
+            costText.text = gizmo.costAmount.ToString();
         }
 
         public void SetAffordablity(bool affordability)
