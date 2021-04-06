@@ -17,18 +17,11 @@ namespace Gizmos
         {
             InitHiddenSpheres();
             InitDisplaySpheres();
-
-            EnergySphere.OnEnergySphereClick += CurrentPlayerPick;
         }
 
         void Start()
         {
             UpdateDisplaySpheresUI();
-        }
-
-        void OnDestroy()
-        {
-            EnergySphere.OnEnergySphereClick -= CurrentPlayerPick;
         }
 
         void InitHiddenSpheres()
@@ -71,7 +64,7 @@ namespace Gizmos
             hiddenSpheres.RemoveAt(0);
         }
 
-        void CurrentPlayerPick(int index)
+        public void CurrentPlayerPick(int index)
         {
             Energy e = DisplaySpheres[index];
             DisplaySpheres.RemoveAt(index);

@@ -2,27 +2,26 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Sirenix.OdinInspector;
 
 namespace Gizmos
 {
     public class GizmoCard : MonoBehaviour
     {
+        [SerializeField] GizmoCardManager manager;
+
         [SerializeField] TextMeshProUGUI effectText;
-        [SerializeField] Image costImage;
+        [SerializeField] Image image;
         [SerializeField] TextMeshProUGUI costText;
 
-        [SerializeField, ReadOnly] Image image;
-        [SerializeField, ReadOnly] Button button;
+        Button button;
 
         public Gizmo Gizmo { get; private set; }
 
         public static event Action<int, int> OnGizmoCardBuild = delegate { };
         public static event Action<int, int> OnGizmoCardFile = delegate { };
 
-        void OnValidate()
+        void Awake()
         {
-            image = GetComponent<Image>();
             button = GetComponent<Button>();
 
             button.onClick.AddListener(OnClick);
@@ -32,10 +31,16 @@ namespace Gizmos
         {
             Gizmo = gizmo;
             Color c = EnergyUtility.GetEnergyColor(gizmo.costEnergy);
-            // image.color = c;
             effectText.text = gizmo.GetEffectDescription();
-            costImage.color = c;
+            image.color = c;
             costText.text = gizmo.costAmount.ToString();
+            var ui = gizmo.GetUI();
+            if (ui != null)
+            {
+                ui.transform.SetParent(effectText.transform);
+                ui.transform.localPosition = Vector3.zero;
+                effectText.enabled = false;
+            }
         }
 
         public void SetAffordablity(bool affordability)
@@ -47,7 +52,7 @@ namespace Gizmos
         {
             int index = transform.GetSiblingIndex();
             // TODO: check if it is a build action or a file action
-            OnGizmoCardBuild(index, Gizmo.level);
+            manager.CurrentPlayerBuild(index, Gizmo.level);
         }
     }
 }

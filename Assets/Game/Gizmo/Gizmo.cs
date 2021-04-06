@@ -1,13 +1,10 @@
 using System;
 using System.Text;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace Gizmos
 {
-
-    /// <summary>
-    /// 发明
-    /// </summary>
     public abstract class Gizmo
     {
         public Energy costEnergy;
@@ -16,12 +13,13 @@ namespace Gizmos
         public int score;
         public abstract void AddEffectToCurrentPlayer();
         public abstract string GetEffectDescription();
+        public virtual GameObject GetUI() { return null; }
     }
 
     [Serializable]
     public class FileRandomGizmo : Gizmo
     {
-        public FileRandomEffect effect;
+        [SerializeField] FileRandomEffect effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
@@ -35,12 +33,11 @@ namespace Gizmos
     [Serializable]
     public class PickRandomGizmo : Gizmo
     {
-        public PickRandomEffect effect;
+        [SerializeField] PickRandomEffect effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
         }
-
         public override string GetEffectDescription()
         {
             Assert.IsTrue(effect.energies.Length > 0);
@@ -58,17 +55,21 @@ namespace Gizmos
             sb.Append("后随机摸球");
             return sb.ToString();
         }
+
+        public override GameObject GetUI()
+        {
+            return effect.GetUI();
+        }
     }
 
     [Serializable]
     public class BuildPickGizmo : Gizmo
     {
-        public BuildPickEffect effect;
+        [SerializeField] BuildPickEffect effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
         }
-
         public override string GetEffectDescription()
         {
             Assert.IsTrue(effect.energies.Length > 0);
@@ -86,17 +87,21 @@ namespace Gizmos
             sb.Append("后摸球");
             return sb.ToString();
         }
+
+        public override GameObject GetUI()
+        {
+            return effect.GetUI();
+        }
     }
 
     [Serializable]
     public class BuildStarGizmo : Gizmo
     {
-        public BuildStarEffect effect;
+        [SerializeField] BuildStarEffect effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
         }
-
         public override string GetEffectDescription()
         {
             Assert.IsTrue(effect.energies.Length > 0);
@@ -119,12 +124,11 @@ namespace Gizmos
     [Serializable]
     public class ConverterGizmo : Gizmo
     {
-        public ConverterEffect effect;
+        [SerializeField] ConverterEffect effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
         }
-
         public override string GetEffectDescription()
         {
             Assert.IsTrue(effect.energies.Length > 0);
@@ -147,12 +151,11 @@ namespace Gizmos
     [Serializable]
     public class DuplicatorGizmo : Gizmo
     {
-        public DuplicatorEffect effect;
+        [SerializeField] DuplicatorEffect effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
         }
-
         public override string GetEffectDescription()
         {
             Assert.IsTrue(effect.energies.Length > 0);
@@ -175,7 +178,7 @@ namespace Gizmos
     [Serializable]
     public class UpgradeGizmo : Gizmo
     {
-        public UpgradeEffect effect;
+        [SerializeField] UpgradeEffect effect;
         public override void AddEffectToCurrentPlayer()
         {
             switch (effect.type)
@@ -190,7 +193,6 @@ namespace Gizmos
                     break;
             }
         }
-
         public override string GetEffectDescription()
         {
             string desc = "";

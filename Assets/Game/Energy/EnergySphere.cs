@@ -6,12 +6,12 @@ namespace Gizmos
 {
     public class EnergySphere : MonoBehaviour
     {
+        [SerializeField] EnergySphereManager manager;
+
         Image image;
         Button button;
 
         public Energy Energy { get; private set; }
-
-        public static event Action<int> OnEnergySphereClick = delegate { };
 
         void Awake()
         {
@@ -30,7 +30,7 @@ namespace Gizmos
         void OnClick()
         {
             int index = transform.GetSiblingIndex();
-            OnEnergySphereClick(index);
+            manager.CurrentPlayerPick(index);
         }
     }
 }

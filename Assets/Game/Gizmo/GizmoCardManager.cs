@@ -16,12 +16,10 @@ namespace Gizmos
             InitLevel1Gizmos();
             InitLevel1Cards();
 
-            GizmoCard.OnGizmoCardBuild += CurrentPlayerBuild;
             GizmoCard.OnGizmoCardFile += CurrentPlayerFile;
         }
 
-        private void OnDestroy() {
-            GizmoCard.OnGizmoCardBuild -= CurrentPlayerBuild;
+        void OnDestroy() {
             GizmoCard.OnGizmoCardFile -= CurrentPlayerFile;
         }
 
@@ -39,6 +37,9 @@ namespace Gizmos
             }
         }
 
+        /// <summary>
+        /// ³é¿¨
+        /// </summary>
         Gizmo DrawGizmoOfLevel(int level)
         {
             // TODO: only support level1 now
@@ -73,7 +74,7 @@ namespace Gizmos
             level1Cards[index].SetGizmo(gizmo);
         }
 
-        void CurrentPlayerBuild(int index, int level)
+        public void CurrentPlayerBuild(int index, int level)
         {
             // TODO: only support level1 now
             Assert.AreEqual(1, level);

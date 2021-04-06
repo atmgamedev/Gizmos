@@ -135,11 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5c1d075afefbd4cbea721932eee354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   effectText: {fileID: 1669837226418196205}
-  costImage: {fileID: 678308975282997943}
+  image: {fileID: 9094530896750399573}
   costText: {fileID: 804325149207313784}
-  image: {fileID: 804325148408457619}
-  button: {fileID: 4731653285980580980}
 --- !u!1 &804325149207313790
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +169,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7535618277326219417}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -417,7 +416,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4046840029358965472, guid: 260a9aa31be9d3540ad15251933fd5d5, type: 3}
       propertyPath: m_Name
-      value: EnergySphereIcon
+      value: EnergySphere
       objectReference: {fileID: 0}
     - target: {fileID: 6455258751140389924, guid: 260a9aa31be9d3540ad15251933fd5d5, type: 3}
       propertyPath: m_Pivot.x
@@ -510,9 +509,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6455258751140389924, guid: 260a9aa31be9d3540ad15251933fd5d5, type: 3}
   m_PrefabInstance: {fileID: 3532593713887579325}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &678308975282997943 stripped
+--- !u!114 &9094530896750399573 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4066641815401383434, guid: 260a9aa31be9d3540ad15251933fd5d5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5706070547374497000, guid: 260a9aa31be9d3540ad15251933fd5d5, type: 3}
   m_PrefabInstance: {fileID: 3532593713887579325}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
