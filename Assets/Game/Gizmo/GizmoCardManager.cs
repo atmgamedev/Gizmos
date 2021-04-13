@@ -38,7 +38,7 @@ namespace Gizmos
         }
 
         /// <summary>
-        /// �鿨
+        /// 从发明堆补充一张发明到桌面
         /// </summary>
         Gizmo DrawGizmoOfLevel(int level)
         {
@@ -58,6 +58,7 @@ namespace Gizmos
             Gizmo gizmo = gizmoCard.Gizmo;
             Player.CurrentPlayer.Dashboard.CostEnergy(gizmo.costEnergy, gizmo.costAmount);
             Player.CurrentPlayer.Dashboard.AddScore(gizmo.score);
+            Player.CurrentPlayer.Dashboard.UseBuildEffect(gizmo.costEnergy, gizmo.level);
             gizmoCard.Gizmo.AddEffectToCurrentPlayer();
         }
 

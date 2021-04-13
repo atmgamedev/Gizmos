@@ -135,7 +135,7 @@ namespace Gizmos
         void SetStar(int number)
         {
             Star = number;
-            scoreText.text = Star.ToString();
+            starText.text = Star.ToString();
         }
 
         public void AddEnergy(Energy energy)
@@ -205,6 +205,12 @@ namespace Gizmos
         {
             effectInfo.effects = new List<GizmoEffect>();
             gizmoText.text = effectInfo.EffectText;
+        }
+        public void UseBuildEffect(Energy energy, int level)
+        {
+            effectInfo.effects
+                .FindAll(effect => effect.TakeEffect(energy))
+                .ForEach(effect => AddStar(effect.GetStar()));
         }
     }
 }

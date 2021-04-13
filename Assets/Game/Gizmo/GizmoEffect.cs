@@ -6,6 +6,8 @@ namespace Gizmos
     public abstract class GizmoEffect
     {
         public virtual GameObject GetUI(){ return null; }
+        public virtual int GetStar() { return 0; }
+        public virtual bool TakeEffect(Energy energy) { return false; }
     };
 
     [Serializable]
@@ -51,6 +53,9 @@ namespace Gizmos
     public class BuildStarEffect : GizmoEffect
     {
         public Energy[] energies;
+        public int star;
+        public override int GetStar() { return star; }
+        public override bool TakeEffect(Energy energy) { return Array.IndexOf(energies, energy) > -1; }
     }
 
     [Serializable]
