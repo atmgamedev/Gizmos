@@ -18,177 +18,201 @@ MonoBehaviour:
       costAmount: 1
       level: 1
       score: 1
+      effect:
+        uiPrefab: {fileID: 4392883265909226322, guid: 757d17995ee68eb4c82c6c0be0a720ce, type: 3}
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
+      effect:
+        uiPrefab: {fileID: 4392883265909226322, guid: 757d17995ee68eb4c82c6c0be0a720ce, type: 3}
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
+      effect:
+        uiPrefab: {fileID: 4392883265909226322, guid: 757d17995ee68eb4c82c6c0be0a720ce, type: 3}
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
+      effect:
+        uiPrefab: {fileID: 4392883265909226322, guid: 757d17995ee68eb4c82c6c0be0a720ce, type: 3}
     pickRandomGizmos:
     - costEnergy: 0
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 01000000
         uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
+        energies: 01000000
     - costEnergy: 0
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
         energies: 02000000
-        uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 00000000
         uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
+        energies: 00000000
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 03000000
         uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
+        energies: 03000000
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 03000000
         uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
+        energies: 03000000
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
         energies: 00000000
-        uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
         energies: 01000000
-        uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 02000000
         uiPrefab: {fileID: 4380925202618580786, guid: fd505b46b10975e48b9e28c489f3fad5, type: 3}
+        energies: 02000000
     buildPickGizmos:
     - costEnergy: 0
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 01000000
         uiPrefab: {fileID: 1767289011296081534, guid: 809a10455c49e5e49a38a89e77f3914d, type: 3}
+        energies: 01000000
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 02000000
         uiPrefab: {fileID: 1767289011296081534, guid: 809a10455c49e5e49a38a89e77f3914d, type: 3}
+        energies: 02000000
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 03000000
         uiPrefab: {fileID: 1767289011296081534, guid: 809a10455c49e5e49a38a89e77f3914d, type: 3}
+        energies: 03000000
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
       effect:
-        energies: 00000000
         uiPrefab: {fileID: 1767289011296081534, guid: 809a10455c49e5e49a38a89e77f3914d, type: 3}
+        energies: 00000000
     buildStarGizmos:
     - costEnergy: 0
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 374508346616768233, guid: eb8934ccdf8dd82479897633aca1ead7, type: 3}
         energies: 03000000
+        star: 0
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 374508346616768233, guid: eb8934ccdf8dd82479897633aca1ead7, type: 3}
         energies: 00000000
+        star: 0
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 374508346616768233, guid: eb8934ccdf8dd82479897633aca1ead7, type: 3}
         energies: 01000000
+        star: 0
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 374508346616768233, guid: eb8934ccdf8dd82479897633aca1ead7, type: 3}
         energies: 02000000
+        star: 0
     converterGizmos:
     - costEnergy: 0
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 120495317126085777, guid: a0037898cc1d56e4098682ed2f01ea95, type: 3}
         energies: 02000000
     - costEnergy: 0
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 120495317126085777, guid: a0037898cc1d56e4098682ed2f01ea95, type: 3}
         energies: 03000000
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 120495317126085777, guid: a0037898cc1d56e4098682ed2f01ea95, type: 3}
         energies: 02000000
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 120495317126085777, guid: a0037898cc1d56e4098682ed2f01ea95, type: 3}
         energies: 03000000
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 120495317126085777, guid: a0037898cc1d56e4098682ed2f01ea95, type: 3}
         energies: 00000000
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 120495317126085777, guid: a0037898cc1d56e4098682ed2f01ea95, type: 3}
         energies: 01000000
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 120495317126085777, guid: a0037898cc1d56e4098682ed2f01ea95, type: 3}
         energies: 00000000
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 120495317126085777, guid: a0037898cc1d56e4098682ed2f01ea95, type: 3}
         energies: 01000000
     upgradeGizmos:
     - costEnergy: 0
@@ -196,46 +220,54 @@ MonoBehaviour:
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 3605195638699801262, guid: 2a76d4e514184924c808923fa183efaa, type: 3}
         type: 0
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 3605195638699801262, guid: 2a76d4e514184924c808923fa183efaa, type: 3}
         type: 0
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 3605195638699801262, guid: 2a76d4e514184924c808923fa183efaa, type: 3}
         type: 0
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 3605195638699801262, guid: 2a76d4e514184924c808923fa183efaa, type: 3}
         type: 0
     - costEnergy: 0
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 3605195638699801262, guid: 2a76d4e514184924c808923fa183efaa, type: 3}
         type: 1
     - costEnergy: 1
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 3605195638699801262, guid: 2a76d4e514184924c808923fa183efaa, type: 3}
         type: 1
     - costEnergy: 2
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 3605195638699801262, guid: 2a76d4e514184924c808923fa183efaa, type: 3}
         type: 1
     - costEnergy: 3
       costAmount: 1
       level: 1
       score: 1
       effect:
+        uiPrefab: {fileID: 3605195638699801262, guid: 2a76d4e514184924c808923fa183efaa, type: 3}
         type: 1

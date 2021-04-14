@@ -150,6 +150,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4264208094367629330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921563330800162299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b686915d8715b28489e469bee71553b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereImages:
+  - {fileID: 3263825636762487197}
 --- !u!1001 &2200550613869051510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 877260066657905442, guid: 95eb10926a1977845a56a5325cd18521, type: 3}
       propertyPath: m_Name
-      value: ConverterEffectUI
+      value: DuplicatorEffectUI
       objectReference: {fileID: 0}
     - target: {fileID: 6889250607702980233, guid: 95eb10926a1977845a56a5325cd18521, type: 3}
       propertyPath: m_RootOrder
@@ -348,6 +362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95eb10926a1977845a56a5325cd18521, type: 3}
+--- !u!1 &7921563330800162299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 877260066657905442, guid: 95eb10926a1977845a56a5325cd18521, type: 3}
+  m_PrefabInstance: {fileID: 7044663912035073753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4492380682061514832 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6889250607702980233, guid: 95eb10926a1977845a56a5325cd18521, type: 3}

@@ -5,12 +5,12 @@ using TMPro;
 
 namespace Gizmos
 {
-    public class UpgradeEffectUI : MonoBehaviour, IGizmoEffectUI
+    public class UpgradeEffectUI : GizmoEffectUI
     {
         [SerializeField] Image[] images;
         [SerializeField] TextMeshProUGUI[] texts;
 
-        public void SetUI(GizmoEffect effect)
+        public override void SetUI(GizmoEffect effect)
         {
             UpgradeEffect upgradeEffect = effect as UpgradeEffect;
             Assert.IsTrue(upgradeEffect != null);

@@ -4,11 +4,11 @@ using UnityEngine.Assertions;
 
 namespace Gizmos
 {
-    public class BuildPickEffectUI : MonoBehaviour, IGizmoEffectUI
+    public class BuildPickEffectUI : GizmoEffectUI
     {
         [SerializeField] Image[] cardImages;
 
-        public void SetUI(GizmoEffect effect)
+        public override void SetUI(GizmoEffect effect)
         {
             BuildPickEffect buildPickEffect = effect as BuildPickEffect;
             Assert.IsTrue(buildPickEffect != null);

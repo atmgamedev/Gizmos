@@ -4,11 +4,11 @@ using UnityEngine.Assertions;
 
 namespace Gizmos
 {
-    public class PickRandomEffectUI : MonoBehaviour, IGizmoEffectUI
+    public class PickRandomEffectUI : GizmoEffectUI
     {
         [SerializeField] Image[] sphereImages;
 
-        public void SetUI(GizmoEffect effect)
+        public override void SetUI(GizmoEffect effect)
         {
             PickRandomEffect pickRandomEffect = effect as PickRandomEffect;
             Assert.IsTrue(pickRandomEffect != null);
