@@ -11,7 +11,7 @@ namespace Gizmos
         public int costAmount;
         public int level;
         public int score;
-        protected abstract GizmoEffect Effect { get; }
+        protected abstract Effect Effect { get; }
         public abstract void AddEffectToCurrentPlayer();
         public abstract string GetEffectDescription();
         public GameObject GetUI()
@@ -24,7 +24,7 @@ namespace Gizmos
     public class FileRandomGizmo : Gizmo
     {
         [SerializeField] FileRandomEffect effect;
-        protected override GizmoEffect Effect => effect;
+        protected override Effect Effect => effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
@@ -39,7 +39,7 @@ namespace Gizmos
     public class PickRandomGizmo : Gizmo
     {
         [SerializeField] PickRandomEffect effect;
-        protected override GizmoEffect Effect => effect;
+        protected override Effect Effect => effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
@@ -67,7 +67,7 @@ namespace Gizmos
     public class BuildPickGizmo : Gizmo
     {
         [SerializeField] BuildPickEffect effect;
-        protected override GizmoEffect Effect => effect;
+        protected override Effect Effect => effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
@@ -95,7 +95,7 @@ namespace Gizmos
     public class BuildStarGizmo : Gizmo
     {
         [SerializeField] BuildStarEffect effect;
-        protected override GizmoEffect Effect => effect;
+        protected override Effect Effect => effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
@@ -123,7 +123,7 @@ namespace Gizmos
     public class ConverterGizmo : Gizmo
     {
         [SerializeField] ConverterEffect effect;
-        protected override GizmoEffect Effect => effect;
+        protected override Effect Effect => effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
@@ -151,7 +151,7 @@ namespace Gizmos
     public class DuplicatorGizmo : Gizmo
     {
         [SerializeField] DuplicatorEffect effect;
-        protected override GizmoEffect Effect => effect;
+        protected override Effect Effect => effect;
         public override void AddEffectToCurrentPlayer()
         {
             Player.CurrentPlayer.Dashboard.AddEffect(effect);
@@ -179,7 +179,7 @@ namespace Gizmos
     public class UpgradeGizmo : Gizmo
     {
         [SerializeField] UpgradeEffect effect;
-        protected override GizmoEffect Effect => effect;
+        protected override Effect Effect => effect;
         public override void AddEffectToCurrentPlayer()
         {
             switch (effect.type)

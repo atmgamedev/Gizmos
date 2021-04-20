@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gizmos
 {
-    public class FileRandomEffectUI : GizmoEffectUI
+    public class FileRandomEffectUI : EffectUI
     {
 
     }

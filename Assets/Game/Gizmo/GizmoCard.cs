@@ -39,6 +39,7 @@ namespace Gizmos
             {
                 ui.transform.SetParent(effectText.transform);
                 ui.transform.localPosition = Vector3.zero;
+                ui.transform.localScale = Vector3.one;
                 effectText.enabled = false;
             }
         }

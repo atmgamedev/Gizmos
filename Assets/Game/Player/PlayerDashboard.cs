@@ -10,14 +10,14 @@ namespace Gizmos
 {
     public class PlayerDashboard : MonoBehaviour
     {
-        public string PlayerName { get; private set; }
         [SerializeField] TextMeshProUGUI nameText;
+        public string PlayerName { get; private set; }
 
-        public int Score { get; private set; }
         [SerializeField] TextMeshProUGUI scoreText;
+        public int Score { get; private set; }
 
-        public int Star { get; private set; }
         [SerializeField] TextMeshProUGUI starText;
+        public int Star { get; private set; }
 
         #region Energy
         public class EnergyStorage
@@ -78,8 +78,8 @@ namespace Gizmos
         #region Effect
         public class EffectInfo
         {
-            public List<GizmoEffect> effects = new List<GizmoEffect>();
-            public int limit = 16; // TODO: should load from config
+            public List<Effect> effects = new List<Effect>();
+            public int limit = 16;
 
             public int Amount => effects.Count;
             public string EffectText => string.Format("{0}/{1}", Amount, limit);
@@ -196,14 +196,14 @@ namespace Gizmos
             ResearchAmount = number;
             researchText.text = ResearchAmount.ToString();
         }
-        public void AddEffect(GizmoEffect effect)
+        public void AddEffect(Effect effect)
         {
             effectInfo.effects.Add(effect);
             gizmoText.text = effectInfo.EffectText;
         }
         void ResetEffect()
         {
-            effectInfo.effects = new List<GizmoEffect>();
+            effectInfo.effects = new List<Effect>();
             gizmoText.text = effectInfo.EffectText;
         }
         public void UseBuildEffect(Energy energy, int level)

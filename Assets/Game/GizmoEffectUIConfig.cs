@@ -6,10 +6,10 @@ namespace Gizmos
 
     public class GizmoEffectUIConfig : MonoBehaviour
     {
-        public GizmoEffectUI fileRandomEffectUIPrefab;
-        public GizmoEffectUI pickRandomEffectUIPrefab;
-        public GizmoEffectUI buildPickEffectUIPrefab;
-        public GizmoEffectUI buildStarEffectUIPrefab;
-        public GizmoEffectUI converterEffectUIPrefab;
+        public EffectUI fileRandomEffectUIPrefab;
+        public EffectUI pickRandomEffectUIPrefab;
+        public EffectUI buildPickEffectUIPrefab;
+        public EffectUI buildStarEffectUIPrefab;
+        public EffectUI converterEffectUIPrefab;
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine.Assertions;
 
 namespace Gizmos
 {
-    public class DuplicatorEffectUI : GizmoEffectUI
+    public class DuplicatorEffectUI : EffectUI
     {
         [SerializeField] Image[] sphereImages;
 
-        public override void SetUI(GizmoEffect effect)
+        public override void SetUI(Effect effect)
         {
             var duplicatorEffect = effect as DuplicatorEffect;
             Assert.IsTrue(duplicatorEffect != null);

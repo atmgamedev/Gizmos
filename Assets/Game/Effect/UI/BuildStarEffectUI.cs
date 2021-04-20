@@ -4,11 +4,11 @@ using UnityEngine.Assertions;
 
 namespace Gizmos
 {
-    public class BuildStarEffectUI : GizmoEffectUI
+    public class BuildStarEffectUI : EffectUI
     {
         [SerializeField] Image[] cardImages;
 
-        public override void SetUI(GizmoEffect effect)
+        public override void SetUI(Effect effect)
         {
             BuildStarEffect buildStarEffect = effect as BuildStarEffect;
             Assert.IsTrue(buildStarEffect != null);

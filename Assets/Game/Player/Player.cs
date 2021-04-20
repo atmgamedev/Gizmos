@@ -40,6 +40,7 @@ namespace Gizmos
         {
             InitAvailableActions();
             ActionPanel.UpdateCardsAffordability(dashboard.energyStorage);
+            EffectPanel.Instance.SetPanel(Dashboard.effectInfo);
         }
         void InitAvailableActions()
         {

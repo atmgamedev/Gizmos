@@ -4,11 +4,11 @@ using UnityEngine.Assertions;
 
 namespace Gizmos
 {
-    public class ConverterEffectUI : GizmoEffectUI
+    public class ConverterEffectUI : EffectUI
     {
         [SerializeField] Image[] sphereImages;
 
-        public override void SetUI(GizmoEffect effect)
+        public override void SetUI(Effect effect)
         {
             var conterverEffect = effect as ConverterEffect;
             Assert.IsTrue(conterverEffect != null);

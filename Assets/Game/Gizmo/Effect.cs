@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Gizmos
 {
-    public abstract class GizmoEffect
+    public abstract class Effect
     {
-        public GizmoEffectUI uiPrefab;
+        public EffectUI uiPrefab;
         public virtual int GetStar() { return 0; }
         public virtual bool TakeEffect(Energy energy) { return false; }
 
@@ -18,22 +18,22 @@ namespace Gizmos
     };
 
     [Serializable]
-    public class FileRandomEffect : GizmoEffect { }
+    public class FileRandomEffect : Effect { }
 
     [Serializable]
-    public class PickRandomEffect : GizmoEffect
+    public class PickRandomEffect : Effect
     {
         public Energy[] energies;
     };
 
     [Serializable]
-    public class BuildPickEffect : GizmoEffect
+    public class BuildPickEffect : Effect
     {
         public Energy[] energies;
     }
 
     [Serializable]
-    public class BuildStarEffect : GizmoEffect
+    public class BuildStarEffect : Effect
     {
         public Energy[] energies;
 
@@ -43,19 +43,19 @@ namespace Gizmos
     }
 
     [Serializable]
-    public class ConverterEffect : GizmoEffect
+    public class ConverterEffect : Effect
     {
         public Energy[] energies;
     }
 
     [Serializable]
-    public class DuplicatorEffect : GizmoEffect
+    public class DuplicatorEffect : Effect
     {
         public Energy[] energies;
     }
 
     [Serializable]
-    public class UpgradeEffect : GizmoEffect
+    public class UpgradeEffect : Effect
     {
         public enum Type
         {
