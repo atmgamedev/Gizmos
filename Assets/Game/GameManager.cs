@@ -4,7 +4,7 @@ namespace Gizmos
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] EnergySphereManager energySphereManager;
+        [SerializeField] SphereManager energySphereManager;
 
         #region Config
         public const int usableLevel3GizmoCount = 16;

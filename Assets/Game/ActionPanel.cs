@@ -6,7 +6,7 @@ namespace Gizmos
     public class ActionPanel : MonoBehaviour
     {
         [SerializeField] Button endTurnButton;
-        [SerializeField] GizmoCard[] cards;
+        [SerializeField] Card[] cards;
 
         static ActionPanel instance;
 

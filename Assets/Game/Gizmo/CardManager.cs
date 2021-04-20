@@ -4,10 +4,10 @@ using UnityEngine.Assertions;
 
 namespace Gizmos
 {
-    public class GizmoCardManager : MonoBehaviour
+    public class CardManager : MonoBehaviour
     {
         [SerializeField] GizmoConfig gizmoConfig;
-        [SerializeField] GizmoCard[] level1Cards;
+        [SerializeField] Card[] level1Cards;
 
         List<Gizmo> level1Gizmos;
 
@@ -16,11 +16,11 @@ namespace Gizmos
             InitLevel1Gizmos();
             InitLevel1Cards();
 
-            GizmoCard.OnGizmoCardFile += CurrentPlayerFile;
+            Card.OnGizmoCardFile += CurrentPlayerFile;
         }
 
         void OnDestroy() {
-            GizmoCard.OnGizmoCardFile -= CurrentPlayerFile;
+            Card.OnGizmoCardFile -= CurrentPlayerFile;
         }
 
         void InitLevel1Gizmos()
@@ -53,7 +53,7 @@ namespace Gizmos
             return gizmo;
         }
 
-        void BuildGizmoCard(GizmoCard gizmoCard)
+        void BuildGizmoCard(Card gizmoCard)
         {
             Gizmo gizmo = gizmoCard.Gizmo;
             Player.CurrentPlayer.Dashboard.CostEnergy(gizmo.costEnergy, gizmo.costAmount);

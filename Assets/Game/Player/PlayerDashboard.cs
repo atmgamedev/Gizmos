@@ -61,7 +61,7 @@ namespace Gizmos
         #region File
         public class FileStorage
         {
-            public List<GizmoCard> filedCards = new List<GizmoCard>();
+            public List<Card> filedCards = new List<Card>();
 
             public int limit;
 
@@ -166,12 +166,12 @@ namespace Gizmos
             energyStorageText.text = energyStorage.StorageText;
             energyStorageText.color = energyStorage.Overflow ? Color.red : Color.black;
         }
-        public void AddFile(GizmoCard card)
+        public void AddFile(Card card)
         {
             Assert.IsTrue(fileStorage.CanFile);
             fileStorage.filedCards.Add(card);
         }
-        public void BuildFromFile(GizmoCard card)
+        public void BuildFromFile(Card card)
         {
             Assert.IsNotNull(fileStorage.filedCards);
             Assert.IsNotNull(fileStorage.filedCards.Find(filedCard => filedCard == card));

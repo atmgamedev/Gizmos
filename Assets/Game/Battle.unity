@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager
@@ -805,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager
@@ -911,7 +911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager
@@ -1706,7 +1706,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1001670176448747962, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Name
-      value: EnergySphere
+      value: Sphere
       objectReference: {fileID: 0}
     - target: {fileID: 2548882448648301531, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Pivot.x
@@ -1907,7 +1907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager
@@ -2372,7 +2372,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1001670176448747962, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Name
-      value: EnergySphere
+      value: Sphere
       objectReference: {fileID: 0}
     - target: {fileID: 2548882448648301531, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Pivot.x
@@ -2947,7 +2947,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1001670176448747962, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Name
-      value: EnergySphere
+      value: Sphere
       objectReference: {fileID: 0}
     - target: {fileID: 2548882448648301531, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Pivot.x
@@ -3414,7 +3414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager
@@ -3531,7 +3531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager
@@ -3879,7 +3879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager
@@ -4035,7 +4035,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1001670176448747962, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Name
-      value: EnergySphere
+      value: Sphere
       objectReference: {fileID: 0}
     - target: {fileID: 2548882448648301531, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Pivot.x
@@ -4240,7 +4240,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1001670176448747962, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Name
-      value: EnergySphere
+      value: Sphere
       objectReference: {fileID: 0}
     - target: {fileID: 2548882448648301531, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Pivot.x
@@ -4357,7 +4357,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1001670176448747962, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Name
-      value: EnergySphere
+      value: Sphere
       objectReference: {fileID: 0}
     - target: {fileID: 2548882448648301531, guid: 794346090974d6240b4cebbfb7ff1a58, type: 3}
       propertyPath: m_Pivot.x
@@ -4912,7 +4912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager
@@ -4937,7 +4937,7 @@ GameObject:
   - component: {fileID: 2090148637}
   - component: {fileID: 2090148636}
   m_Layer: 5
-  m_Name: EnergySpheres
+  m_Name: Spheres
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5436,7 +5436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804325148408457622, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: m_Name
-      value: GizmoCard
+      value: Card
       objectReference: {fileID: 0}
     - target: {fileID: 2843215225168382696, guid: 31142a680ee47334da481e9835cf67d6, type: 3}
       propertyPath: manager

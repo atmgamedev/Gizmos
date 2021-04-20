@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Gizmos
 {
-    public class EnergySphereManager : MonoBehaviour
+    public class SphereManager : MonoBehaviour
     {
-        [SerializeField] EnergySphere[] spheres;
+        [SerializeField] Sphere[] spheres;
 
         const int eachTypeSphereCount = 13;
         const int displaySphereCount = 6;

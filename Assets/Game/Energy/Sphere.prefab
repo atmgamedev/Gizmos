@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6337183835650088162}
   - component: {fileID: 5094440305471480433}
   m_Layer: 5
-  m_Name: EnergySphere
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

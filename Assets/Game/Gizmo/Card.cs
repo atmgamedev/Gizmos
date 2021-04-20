@@ -5,9 +5,9 @@ using TMPro;
 
 namespace Gizmos
 {
-    public class GizmoCard : MonoBehaviour
+    public class Card : MonoBehaviour
     {
-        [SerializeField] GizmoCardManager manager;
+        [SerializeField] CardManager manager;
 
         [SerializeField] TextMeshProUGUI effectText;
         [SerializeField] Image image;

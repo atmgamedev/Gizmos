@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 namespace Gizmos
 {
-    public class EnergySphere : MonoBehaviour
+    public class Sphere : MonoBehaviour
     {
-        [SerializeField] EnergySphereManager manager;
+        [SerializeField] SphereManager manager;
 
         Image image;
         Button button;
